@@ -136,6 +136,9 @@ void StarFighter::desplazaIzquierda(int posicion) {
 }
 
 void StarFighter::agnadirPieza(std::string nombre, float peso, std::string descripcion) {
+    if(num_piezas == MAX_PARTES){
+        throw std::length_error("StarFighter::agnadirPieza: se ha alcanzado el numero máximo de piezas que puede agregar una nave");
+    }
     ++num_piezas;
     Pieza **copia = new Pieza * [num_piezas];
     for (int i = 0; i < num_piezas - 1; ++i) {
