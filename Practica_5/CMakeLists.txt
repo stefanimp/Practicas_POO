@@ -1,6 +1,8 @@
-cmake_minimum_required(VERSION 3.24)
-project(Practica_5)
+cmake_minimum_required(VERSION 3.19)
+project(prueba)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Practica_5 main.cpp)
+FILE(GLOB SOURCE_FILES *.cpp)
+
+ADD_EXECUTABLE(a.exe ${SOURCE_FILES})
