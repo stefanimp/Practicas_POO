@@ -147,6 +147,8 @@ void StarFighter::agnadirPieza(std::string nombre, float peso, std::string descr
     }
     delete[] partes;
 
+    copia[num_piezas - 1] = new Pieza(nombre, peso, descripcion);
+
     partes = copia;
 }
 
@@ -172,4 +174,12 @@ void StarFighter::eliminarPieza(std::string nombre) {
             --num_piezas;
         }
     }
+}
+
+float StarFighter::calculaPeso() {
+    float peso = 0;
+    for (int i = 0; i < num_piezas; ++i) {
+        peso += partes[i]->getPeso();
+    }
+    return peso;
 }

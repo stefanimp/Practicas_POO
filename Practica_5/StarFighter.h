@@ -48,6 +48,7 @@ class StarFighter
       void agnadirPieza(std::string nombre, float peso, std::string descripcion);
       void eliminarPieza(const Pieza &pieza);
       void eliminarPieza(std::string nombre);
+      float calculaPeso();
 };
 
 #endif /* STARFIGHTER_H */

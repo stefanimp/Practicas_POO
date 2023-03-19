@@ -5,4 +5,4 @@ set(CMAKE_CXX_STANDARD 20)
 
 FILE(GLOB SOURCE_FILES *.cpp)
 
-ADD_EXECUTABLE(a.exe ${SOURCE_FILES})
+ADD_EXECUTABLE(a.exe ${SOURCE_FILES} Escuadron.h Escuadron.cpp)
