@@ -37,6 +37,7 @@ public:
     void agnadirPiloto(Piloto *piloto);
     void agnadirPiloto(std::string nombre);
     float promedioMisiones();
+    void fromCSV(std::string vaolres);
 };
 
 #endif //PRUEBA_ESCUADRON_H

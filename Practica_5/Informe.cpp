@@ -113,3 +113,12 @@ Informe& Informe::operator = ( const Informe& otro )
    
    return  *this ;
 }
+
+void Informe::fromCSV(std::string valores) {
+    std::stringstream ss;
+    ss.str(valores);
+    ss>> this->_idPiloto;
+    ss.ignore(1);
+    ss>> this->_fechaEstelar;
+    std::getline(ss,this->_datosInforme,';');
+}

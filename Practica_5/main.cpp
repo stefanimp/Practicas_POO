@@ -5,8 +5,11 @@
  * @date Fecha estelar 20160309
  */
 
+#include "Pieza.h"
+
 #include <cstdlib>
 #include <string>
+#include <iostream>
 
 using namespace std;
 

@@ -98,6 +98,13 @@ float Escuadron::promedioMisiones() {
     return (total_misiones/num_pilotos);
 }
 
-
+void Escuadron::fromCSV(std::string valores) {
+    std::stringstream ss;
+    ss.str(valores);
+    std::getline(ss,this->nombre,';');
+    ss>> this->num_pilotos;
+    ss.ignore(1);
+    std::getline(ss, this->base,';');
+}
 
 

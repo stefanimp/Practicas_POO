@@ -1,4 +1,4 @@
-/** 
+/**
  * @file Pieza.h
  * @author Yoyapro Gramo
  *
@@ -9,6 +9,7 @@
 #define PIEZA_H
 
 #include <string>
+#include <sstream>
 
 
 /**
@@ -33,6 +34,7 @@ class Pieza
       Pieza& setNombre ( std::string nombre );
       std::string getNombre ( ) const;
       Pieza& operator= ( const Pieza& orig );
+      void fromCSV(std::string valores);
 };
 
 #endif /* PIEZA_H */

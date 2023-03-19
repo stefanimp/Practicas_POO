@@ -76,3 +76,12 @@ Pieza& Pieza::operator = (const Pieza& orig)
    
    return *this;
 }
+
+void Pieza::fromCSV(std::string valores) {
+    std::stringstream ss;
+    ss.str(valores);
+    std::getline(ss, this->_nombre,';');
+    ss>> this->_peso;
+    ss.ignore(1);
+    std::getline(ss, this->_descripcion,';');
+}

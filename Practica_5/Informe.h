@@ -37,6 +37,7 @@ class Informe
       int getIdI ( ) const;
       std::string toCSV () const;
       Informe& operator= ( const Informe& otro );
+      void fromCSV(std::string valores);
 };
 
 #endif /* INFORME_H */
