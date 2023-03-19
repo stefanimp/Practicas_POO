@@ -36,6 +36,7 @@ public:
     //Otros métodos
     void agnadirPiloto(Piloto *piloto);
     void agnadirPiloto(std::string nombre);
+    float promedioMisiones();
 };
 
 #endif //PRUEBA_ESCUADRON_H

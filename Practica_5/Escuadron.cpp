@@ -90,6 +90,14 @@ void Escuadron::agnadirPiloto(std::string nombre) {
     integrantes = copia;
 }
 
+float Escuadron::promedioMisiones() {
+    float total_misiones = 0;
+    for (int i = 0; i < num_pilotos; ++i) {
+        total_misiones += integrantes[i]->getNumMisiones();
+    }
+    return (total_misiones/num_pilotos);
+}
+
 
 
 
