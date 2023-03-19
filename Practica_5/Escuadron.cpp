@@ -27,6 +27,8 @@ base(original.base),
 integrantes(original.integrantes){
 }
 
+Escuadron::~Escuadron() {}
+
 void Escuadron::setNombre(std::string nombre) {
     this->nombre = nombre;
 }
