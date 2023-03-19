@@ -60,7 +60,7 @@ Piloto **Escuadron::getIntegrantes() const {
 
 void Escuadron::agnadirPiloto(Piloto *piloto) {
     if(num_pilotos == MAX_PILOTOS){
-        throw std::length_error("Escuadron::agnadirPiloto(): Se ha alcanzado el numero maximo de integrantes");
+        throw std::invalid_argument("Escuadron::agnadirPiloto(): Se ha alcanzado el numero maximo de integrantes");
     }
     ++num_pilotos;
     Piloto **copia = new Piloto * [num_pilotos];

@@ -136,8 +136,10 @@ Piloto& Piloto::setFechaUltimaMision ( long fechaUltimaMision )
  *       última misión; haz esta comprobación y lanza la excepción
  *       correspondiente
  */
-long Piloto::getFechaUltimaMision ( ) const
-{
+long Piloto::getFechaUltimaMision ( ) const{
+    if(_numMisiones == 0){
+        throw std::length_error("Piloto::getfechaUltimaMision: el piloto no ha realizado ninguna mision");
+    }
    return _fechaUltimaMision;
 }
 

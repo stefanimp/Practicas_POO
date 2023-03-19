@@ -13,10 +13,12 @@ using std::string;
  * @todo Hay que comprobar que el peso no sea un valor negativo. Si lo es, se
  *       lanzaría una excepción de tipo std::invalid_argument
  */
-Pieza::Pieza ( string nombre, float peso,
-               string descripcion ): _nombre(nombre), _peso(peso),
-                                     _descripcion(descripcion)
-{
+Pieza::Pieza ( string nombre, float peso, string descripcion ):
+_nombre(nombre), _peso(peso),
+_descripcion(descripcion){
+    if(peso < 0){
+        throw std::invalid_argument("Pieza::Pieza: el peso no puede ser negativo");
+    }
 }
 
 Pieza::Pieza ( const Pieza& orig ): Pieza ( orig._nombre,
@@ -42,10 +44,12 @@ string Pieza::getDescripcion ( ) const
 
 /**
  * @todo Hay que comprobar que el peso no sea un valor negativo. Si lo es, se
- *       lanzaría una excepción de tipo std::invalid_argument
+ *       lanzaría una excepción de tipo std::invalid_argument //HECHO
  */
-Pieza& Pieza::setPeso ( float peso )
-{
+Pieza& Pieza::setPeso ( float peso ){
+    if (peso < 0){
+        throw std::invalid_argument("Pieza::setPeso: el peso no puede ser negativo");
+    }
    this->_peso = peso;
    return *this;
 }

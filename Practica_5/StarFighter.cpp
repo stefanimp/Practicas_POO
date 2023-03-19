@@ -49,10 +49,9 @@ StarFighter::~StarFighter ( ){
 
 /**
  * @todo Aquí hay que añadir la comprobación del parámetro y lanzar la excepción
- *       correspondiente. El número de plazas no puede ser <= 0
+ *       correspondiente. El número de plazas no puede ser <= 0 //HECHO
  */
-StarFighter& StarFighter::setNumPlazas ( int numPlazas )
-{
+StarFighter& StarFighter::setNumPlazas ( int numPlazas ){
    if ( numPlazas <= 0 )
    {
       throw std::invalid_argument ( "StarFighter::StarFighter: el número de"
@@ -63,8 +62,7 @@ StarFighter& StarFighter::setNumPlazas ( int numPlazas )
     return *this;
 }
 
-int StarFighter::getNumPlazas ( ) const
-{
+int StarFighter::getNumPlazas ( ) const{
    return _numPlazas;
 }
 

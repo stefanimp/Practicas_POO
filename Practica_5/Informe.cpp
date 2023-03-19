@@ -50,11 +50,12 @@ string Informe::getDatosInforme ( ) const
 }
 
 /**
- * @todo Comprobar el valor, y si es negativo, lanzar excepción
+ * @todo Comprobar el valor, y si es negativo, lanzar excepción // HECHO
  */
-Informe& Informe::setFechaEstelar ( long fechaEstelar )
-{
-
+Informe& Informe::setFechaEstelar ( long fechaEstelar ){
+if(fechaEstelar < 0){
+    throw std::out_of_range("Informe::setFechaEstelar: la fecha no puede ser negativa");
+}
     this->_fechaEstelar = fechaEstelar;
 
    return *this;
@@ -66,7 +67,7 @@ long Informe::getFechaEstelar ( ) const
 }
 
 /**
- * @todo Comprobar el valor, y si es negativo, lanzar excepción
+ * @todo Comprobar el valor, y si es negativo, lanzar excepción //HECHO
  */
 Informe& Informe::setIdPiloto ( int idPiloto )
 {
