@@ -38,6 +38,7 @@ public:
     void agnadirPiloto(std::string nombre);
     float promedioMisiones();
     void fromCSV(std::string vaolres);
+    bool piezaDefectuosa(std::string nombrePiezaDefectuosa) const;
 };
 
 #endif //PRUEBA_ESCUADRON_H

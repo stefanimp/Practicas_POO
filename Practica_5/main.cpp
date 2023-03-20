@@ -64,6 +64,16 @@ int main ( int argc, char** argv )
 
     //EJERCICIOS CLASE
 
+    // Partienndo de los datos del ejemplo, en el programa añade a la primera nave esta pieza defectuosa ys asigna esta nave al pilo[1]
+    nave1.agnadirPieza("Caudalimetro",2.78,"Pieza defectusosa");
+    pilotos[1]->setNave(&nave1);
+
+    //Realiza las operaciones necesarias
+    if(escuadron1.piezaDefectuosa("Caudalimetro")){
+        std::cout<<"Uno de los miembros de escuadron tiene una nave con una piez defectuosa";
+    }
+
+
     //Libera los recursos utilizados
     for (int i = 0; i < num_pilotos; ++i) {
         delete pilotos[i];

@@ -186,3 +186,11 @@ float StarFighter::calculaPeso() {
     }
     return peso;
 }
+
+int StarFighter::getNumPiezas() const {
+    return num_piezas;
+}
+
+std::string StarFighter::getNombrePieza(int posicion) {
+    return partes[posicion]->getNombre();
+}

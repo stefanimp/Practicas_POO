@@ -55,6 +55,7 @@ class Piloto
       Droide* getAuxiliar ( ) const;
       Informe generaInforme ();
       void fromCSV ( std::string& datos );
+      bool piezaDefectuosa(std::string nombrePiezaDefectusosa) const;
 };
 
 #endif /* PILOTO_H */

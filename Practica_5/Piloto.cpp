@@ -226,3 +226,14 @@ void Piloto::fromCSV ( string& datos )
    aux.ignore (1);
    getline ( aux, this->_incidenciasUltimaMision );
 }
+
+bool Piloto::piezaDefectuosa(std::string nombrePiezaDefectuosa) const {
+    if(_nave != nullptr){
+        for (int i = 0; i < _nave->getNumPiezas(); ++i) {
+            if(_nave->getNombrePieza(i) == nombrePiezaDefectuosa){
+                return true;
+            }
+        }
+    }
+    return false;
+}

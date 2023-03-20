@@ -44,11 +44,13 @@ class StarFighter
       StarFighter& operator= ( const StarFighter& otro );
       void fromCSV ( std::string& datos );
       //Metodos de la prática 5
+      int getNumPiezas() const;
       void desplazaIzquierda(int posicion);
       void agnadirPieza(std::string nombre, float peso, std::string descripcion);
       void eliminarPieza(const Pieza &pieza);
       void eliminarPieza(std::string nombre);
       float calculaPeso();
+      std::string getNombrePieza(int posicion);
 };
 
 #endif /* STARFIGHTER_H */

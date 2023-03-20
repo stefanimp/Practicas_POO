@@ -109,4 +109,11 @@ void Escuadron::fromCSV(std::string valores) {
     std::getline(ss, this->base,';');
 }
 
-
+bool Escuadron::piezaDefectuosa(std::string NombrePiezaDefectuosa) const {
+    for (int i = 0; i < num_pilotos; ++i) {
+        if (integrantes[i]->piezaDefectuosa(NombrePiezaDefectuosa)){
+            return true;
+        }
+    }
+    return false;
+}
