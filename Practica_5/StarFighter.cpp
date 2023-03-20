@@ -7,6 +7,7 @@
 
 #include <stdexcept>
 #include <sstream>
+#include <iostream>
 
 #include "StarFighter.h"
 
@@ -23,7 +24,6 @@ StarFighter::StarFighter ( string marca, string modelo ):
                            num_piezas(1),
                            partes(new Pieza*[1]){
     partes[0] = new Pieza("Controlador", 2.78, "Controlador por defecto que incorporan todas las naves");
-    ++num_piezas;
    _numStarFighters++;
    _idSF = _numStarFighters;
 }
@@ -144,6 +144,7 @@ void StarFighter::agnadirPieza(std::string nombre, float peso, std::string descr
         partes[i] = nullptr;
     }
     delete[] partes;
+    partes = nullptr;
 
     copia[num_piezas - 1] = new Pieza(nombre, peso, descripcion);
 

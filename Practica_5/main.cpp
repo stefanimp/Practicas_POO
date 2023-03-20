@@ -51,7 +51,7 @@ int main ( int argc, char** argv )
     StarFighter nave1("VNM","4M");
     StarFighter nave2("Cedesmer","MGA");
 
-    nave1.agnadirPieza("Peiza 1",23.4,"Pieza añadida desde el main");
+    nave1.agnadirPieza("Pieza 1",23.4,"Pieza añadida desde el main");
     nave1.agnadirPieza("Pieza 2", 0.23,"Tornillo espacial");
     nave2.agnadirPieza("Pieza 3",3.2, "Parche gravitatorio");
 
