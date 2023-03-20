@@ -139,14 +139,18 @@ void StarFighter::agnadirPieza(std::string nombre, float peso, std::string descr
     }
     ++num_piezas;
     Pieza **copia = new Pieza * [num_piezas];
+    try {
+        copia[num_piezas - 1] = new Pieza(nombre, peso, descripcion);
+    } catch (std::string &e){
+        std::cout<<e;
+    }
+
     for (int i = 0; i < num_piezas - 1; ++i) {
         copia[i] = partes[i];
         partes[i] = nullptr;
     }
     delete[] partes;
     partes = nullptr;
-
-    copia[num_piezas - 1] = new Pieza(nombre, peso, descripcion);
 
     partes = copia;
 }

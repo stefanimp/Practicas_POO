@@ -61,6 +61,9 @@ int main ( int argc, char** argv )
     //Muestra por consola el peso de cada starfight
     std::cout<<"El peso de las peizas de la primera nave es de: " <<nave1.calculaPeso() <<std::endl;
     std::cout<<"El peso de las piezas de la segunda nave es de: " <<nave2.calculaPeso() <<std::endl;
+
+    //EJERCICIOS CLASE
+
     //Libera los recursos utilizados
     for (int i = 0; i < num_pilotos; ++i) {
         delete pilotos[i];
