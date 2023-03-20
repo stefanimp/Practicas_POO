@@ -123,10 +123,12 @@ string Piloto::getIncidenciasUltimaMision ( ) const
 /**
  * @todo Si el número de misiones del piloto es 0, no puede tener fecha de
  *       última misión; haz esta comprobación y lanza la excepción
- *       correspondiente
+ *       correspondiente // HECHO
  */
-Piloto& Piloto::setFechaUltimaMision ( long fechaUltimaMision )
-{
+Piloto& Piloto::setFechaUltimaMision ( long fechaUltimaMision ){
+    if (_numMisiones == 0){
+        throw std::invalid_argument("Piloto::setFechaUltimaMision: el piloto no ha realizado ninguna misión");
+    }
    this->_fechaUltimaMision = fechaUltimaMision;
    return *this;
 }
