@@ -2,6 +2,9 @@
  * @file main.cpp
  * @author ujapoo
  */
+
+#include "DataCenter.h"
+
 #include <iostream>
 
 int main() {
@@ -16,6 +19,4 @@ int main() {
     /*Prueba 4: Crea un DataCenter que sea copia del que ya existe.
      Para la copia, enciende sus dos primeros dispositivos,
      visualiza el consumo actual del DataCenter y el número de dispositivos que tiene.*/
-
-    return 0;
 }

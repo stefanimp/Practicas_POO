@@ -3,4 +3,4 @@ project(CloudPOO_ini)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(cloudpoo main.cpp Generador.cpp Generador.h Dispositivo.cpp Dispositivo.h)
+add_executable(cloudpoo main.cpp Generador.cpp Generador.h Dispositivo.cpp Dispositivo.h DataCenter.h DataCenter.cpp)
