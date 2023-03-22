@@ -7,31 +7,43 @@
 DataCenter::DataCenter(std::string ubicacion, float superficie):
 ubicacion(ubicacion),
 superficie(superficie){
+    generador = nullptr;
+    dispositivos = nullptr;
+    num_dispositivos = 0;
+    tecnicos = 1;
 }
 
 DataCenter::DataCenter(const DataCenter &original):
 ubicacion(original.ubicacion),
 superficie(original.superficie),
 tecnicos(original.tecnicos),
-generador(original.generador),
-num_dispositivos(original.num_dispositivos),
-dispositivos(original.dispositivos){
+num_dispositivos(original.num_dispositivos){
+    Dispositivo **copia = new Dispositivo * [num_dispositivos];
+    for (int i = 0; i < num_dispositivos; ++i) {
+        copia[i] = new Dispositivo(*original.dispositivos[i]);
+    }
+    dispositivos = copia;
+    generador = new Generador(*original.generador);
 }
 
 DataCenter::~DataCenter() {
-    delete generador;
-    generador = nullptr;
-
-    for (int i = 0; i < num_dispositivos; ++i) {
-        dispositivos[i] = nullptr;
+    if(generador != nullptr){
+        delete generador;
+        generador = nullptr;
     }
-    delete [] dispositivos;
-    dispositivos = nullptr;
+
+    if(dispositivos != nullptr){
+        for (int i = 0; i < num_dispositivos; ++i) {
+            dispositivos[i] = nullptr;
+        }
+        delete [] dispositivos;
+        dispositivos = nullptr;
+    }
 }
 
 void DataCenter::setFuente(Generador *generador) {
-    if(generador != nullptr){
-        throw std::invalid_argument("DataCenter::setFuente: solo se puede el generador una vez");
+    if(this->generador != nullptr){
+        throw std::invalid_argument("DataCenter::setFuente: solo se puede asignar el generador una vez");
     }
     this->generador = generador;
 }
