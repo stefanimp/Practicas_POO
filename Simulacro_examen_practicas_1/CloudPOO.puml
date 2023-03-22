@@ -1,0 +1,41 @@
+@startuml
+skinparam {
+    style strictuml
+    classAttributeIconSize 0
+    classBackGroundColor yellow
+}
+
+class Generador {
+  - modelo: cadena
+  - potencia: decimal
+  + Generador(modelo,potencia)
+  + getPotencia(): decimal
+}
+
+class DataCenter {
+   - ubicacion: cadena
+   - superficie: decimal {metros cuadrados}
+   - tecnicos: entero = 1 { entre 1 y 4 }
+
+   + DataCenter(ubicacion, superficie)
+   + setFuente( Generador)
+   + getPotenciaDisponible(): decimal
+   + instala(Dispositivo)
+   + getDispositivo(cual): Dispositivo*
+   + getNumDispositivos(): entero
+   + consumoActual(): decimal
+}
+class Dispositivo {
+ - descripcion: cadena
+ - consumo: decimal
+ - activo: booleano = falso
+ + Dispositivo(descripcion, consumo)
+ + isActivo(): booleano
+ + conmutaEstado(): booleano
+ + getConsumo(): decimal
+}
+
+DataCenter o-"{0..10}" Dispositivo
+Generador "fuente\n0..1"-* DataCenter
+
+@enduml
