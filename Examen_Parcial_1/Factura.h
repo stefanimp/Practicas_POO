@@ -6,6 +6,8 @@
 #define EXAMEN_PARCIAL_1_FACTURA_H
 
 #include <string>
+#include <stdexcept>
+#include <iostream>
 
 #include "Cliente.h"
 #include "Articulo.h"
@@ -22,6 +24,7 @@ private:
     int numero;                         //Numero identificador de las facturas
     int fecha = 000101;                 //Fecha de emisión de la factura por defecto(2000/01/01) esta siempre debe ser mayor a esta
     Cliente *cliente = nullptr;
+    int num_articulos = 0;
     Articulo **articulos = nullptr;     //Máximo 5 artículos y mínimo 0
 public:
     //Cosntructores y destructores
@@ -31,7 +34,7 @@ public:
     ~Factura();
     //Setters
     void setFecha(int fecha);
-    void setCliente(const Cliente &cliente);
+    void setCliente(Cliente *cliente);
     //Getters
     int getFecha() const;
     int getNumfactura() const;
