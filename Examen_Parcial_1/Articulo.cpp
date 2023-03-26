@@ -31,6 +31,7 @@ nombre(original.nombre),
 importe(original.importe),
 id(original.id){
 }
+Articulo::~Articulo() {}
 
 void Articulo::setNombre(std::string nomrbe) {
     this->nombre = nomrbe;

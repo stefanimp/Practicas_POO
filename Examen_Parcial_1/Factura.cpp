@@ -122,3 +122,7 @@ float Factura::importe() const {
     }
     return importe;
 }
+
+std::string Factura::getNombreCliente() const {
+    return cliente->getNombre();
+}

@@ -43,6 +43,7 @@ public:
     void agnadirArticulos(std::string nombre, float importe);
     void consultarArticulo(int posicion);
     float importe() const;
+    std::string getNombreCliente() const;
 
 };
 
