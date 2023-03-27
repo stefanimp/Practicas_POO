@@ -8,9 +8,10 @@ int Factura::cant_facturas = 0;         //Debemos inicializar el numero de factu
 
 /**
  * @brief   Constructor por defecto de la clase Factura
+ * @details La fecha por defecto será 000101
  * @post    Se crea un objeto del tipo Factura con los valores por defecto
  * */
-Factura::Factura():fecha(000101){
+Factura::Factura():fecha(FECHA_DEFECTO){
     ++cant_facturas;
     numero = cant_facturas;
     cliente = nullptr;
@@ -68,13 +69,24 @@ Factura::~Factura() {
     articulos = nullptr;
 }
 
+/**
+ * @brief   Modifica el valor del atributo Fecha
+ * @param fecha Nuevo valor que tendrá el atributo
+ * @post    El valor del atributo queda modificado
+ * */
 void Factura::setFecha(int fecha) {
-    if(fecha <= 000101){
+    if(fecha <= FECHA_DEFECTO){
         throw std::invalid_argument("Factura::setFecha: la fecha que se quiere asignar no es valida");
     }
     this->fecha = fecha;
 }
 
+/**
+ * @brief   Asigna un cliente a la factura
+ * @param cliente   Cliente que se va a asignar
+ * @post    El cliente queda asignado
+ * @post    Si el nombre o la dirección del cliente están vacíos se lanza una excepción
+ * */
 void Factura::setCliente(Cliente *cliente) {
     if(cliente->getNombre() == "" || cliente->getDireccion() == ""){
         throw std::invalid_argument("Factura::setCliente: los atributos del cliente no pueden estar vacios");
@@ -82,39 +94,77 @@ void Factura::setCliente(Cliente *cliente) {
     this->cliente = cliente;
 }
 
+/**
+ * @brief   Devuelve el valor del atributo fecha
+ * @post    Devuelve el valor del atributo fecha
+ * */
 int Factura::getFecha() const {
     return fecha;
 }
 
+/**
+ * @brief   Devuelve el valor del atributo numero
+ * @post    Devuelve el valor del atributo numero
+ * */
 int Factura::getNumfactura() const {
     return numero;
 }
 
+/**
+ * @brief   Devuelve el Cliente asociado a la factura
+ * @post    Devuelve el cliente asociado a la factura
+ * */
 Cliente &Factura::getCliente() const {
     return *cliente;
 }
 
+/**
+ * @brief   Añade un articuo a la factura
+ * @details Ya que estamos trabajando con vectores de punteros que apuntan a objetos y solo tendremos tantos punteros como articulos tengamos, es decir, cada vez que añadamos un articulo tendremos que ampliar el tamaño de nuestro vector de punteros, describiré el procedimiento en el codigo
+ * @param nombre    Nombre del articulo que se desea añadir
+ * @param importe   Importe del articulo que se desea añadir
+ * @post    El articulo queda añadido
+ * @post    Si se ha alcanzado el numero máximo de artículos permitidos se lanza una excepción
+ * */
 void Factura::agnadirArticulos(std::string nombre, float importe) {
     if(num_articulos == MAX_ARTICULOS){
         throw std::out_of_range("Factura::agnadirArticulos: se ha alcanzado el maximo de articulos que puede agnadir a una factura");
     }
+    //Aumentamos el numero de articulos que tendrá la factura
+    //Creamos un nuevo vector de punteros que apuntan a objetos con el nuevo tamaño y le iremos asignando la dirección a la que apuntaba el anterior vector(que tenía menor tamaño y por eso no se puede añadir directamente el objeto)
+    //A la vez que asignamos al nuevo vector, colocamos el anterior vector a nullptr
     Articulo **nuevo = new Articulo * [++num_articulos];
     for (int i = 0; i < num_articulos - 1; ++i) {
         nuevo[i] = articulos[i];
         articulos[i] = nullptr;
     }
+    //Añadimos el nuevo articulo a la ultima posición del vector
     nuevo[num_articulos-1] = new Articulo(nombre, importe);
 
+    //Eliminamos el contenido del anterior vector y asignamos el atributo articulos al nuevo vector
     delete[] articulos;
     articulos = nuevo;
 }
 
+/**
+ * @brief   Muestra los datos de un articulo según su posición
+ * @param posicion  Posición del articulo del qu se desean consular los datos
+ * @post    Se muestran por pantalla los datos del articulo indicado
+ * @post    Si la posición es menor a 0 o mayor que la cantidad de artículos que hay en la factura se lanza una excepción
+ * */
 void Factura::consultarArticulo(int posicion) {
+    if(posicion > num_articulos || posicion < MIN_ARTICULOS){
+        throw std::invalid_argument("Factura::consultarArticulo: Error, la posición introducida no es valida");
+    }
     std::cout<<"El nombre del articulo seleccionado es: " <<articulos[posicion-1]->getNombre() <<std::endl;
     std::cout<<"El importe del articulo seleccionado es: " <<articulos[posicion-1]->getImporte() <<std::endl;
     std::cout<<"El ID del articulo seleccionado es: " <<articulos[posicion-1]->getID() <<std::endl;
 }
 
+/**
+ * @brief   Devuelve el importe total de los artículos que aparecen en la factura
+ * @post    Devuelve el importe total de los artículos que aparecen en la factura
+ * */
 float Factura::importe() const {
     float importe = 0;
     for (int i = 0; i < num_articulos; ++i) {
@@ -123,6 +173,10 @@ float Factura::importe() const {
     return importe;
 }
 
+/**
+ * @brief   Devuelve el nombre del cliente
+ * @post    Devuelve el nombre del cliente
+ * */
 std::string Factura::getNombreCliente() const {
     return cliente->getNombre();
 }

@@ -14,6 +14,7 @@
 
 const int MIN_ARTICULOS = 0;
 const int MAX_ARTICULOS = 5;
+const int FECHA_DEFECTO = 000101;
 
 /**
  * @brief   Clase de una factura
