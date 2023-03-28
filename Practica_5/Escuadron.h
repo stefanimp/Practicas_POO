@@ -9,8 +9,6 @@
 
 #include "Piloto.h"
 
-const int MAX_PILOTOS = 50;
-
 class Escuadron{
 private:
     std::string nombre = "";
@@ -18,6 +16,8 @@ private:
     std::string base = "";
     Piloto **integrantes = nullptr;
 public:
+    //Constantes
+    static const int MAX_PILOTOS = 50;
     //Constructores
     Escuadron() = default;
     Escuadron(std::string nombre, int num_pilotos, std::string base, Piloto **integrantes);

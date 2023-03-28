@@ -12,8 +12,6 @@
 
 #include <string>
 
-const int MAX_PARTES = 50;
-
 /**
  * @brief
  */
@@ -29,6 +27,7 @@ class StarFighter
       Pieza **partes = nullptr;
 
    public:
+    static const int MAX_PARTES = 50;
       StarFighter ();
       StarFighter ( std::string marca, std::string modelo );
       StarFighter ( const StarFighter& orig );
