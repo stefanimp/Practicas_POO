@@ -29,6 +29,6 @@ public:
     std::string getNombre() const;
     float getImporte() const;
     int getID() const;
-};
+};  
 
 #endif //EXAMEN_PARCIAL_1_ARTICULO_H
