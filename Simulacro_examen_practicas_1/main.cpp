@@ -24,8 +24,8 @@ int main() {
     DataCenter centro1("Ubicacion1",300.34);
     try {
         centro1.setTecnicos(2);
-    }catch (std::string &e){
-        std::cerr<<e <<std::endl;
+    }catch (std::out_of_range &e){
+        std::cerr<<e.what() <<std::endl;
     }
     Dispositivo *dispositivo1 = new Dispositivo("Rack de servidores de 500W",500);
     Dispositivo *dispositivo2 = new Dispositivo("RAID de discos de 750W", 750);
@@ -37,8 +37,8 @@ int main() {
 
     try {
         centro1.setFuente(generador1);
-    }catch (std::string &e){
-        std::cerr<<e <<std::endl;
+    }catch (std::invalid_argument &e){
+        std::cerr<<e.what()<<std::endl;
     }
     /*
     try {
@@ -52,14 +52,18 @@ int main() {
         centro1.instala(dispositivo1);
         centro1.instala(dispositivo2);
         centro1.instala(dispositivo3);
-    } catch (std::string &e){
-        std::cerr<<e <<std::endl;
+    } catch (std::length_error &e){
+        std::cerr<<e.what() <<std::endl;
     }
 
     //Prueba 4
-    DataCenter centroCopia(centro1);
-    dispositivo1->conmutaEstado();
-    dispositivo2->conmutaEstado();
-    std::cout<<centroCopia.ConsumoActual() <<std::endl;
-    std::cout<<centroCopia.getNumDispositivos();
+    try {
+        DataCenter centroCopia(centro1);
+        dispositivo1->conmutaEstado();
+        dispositivo2->conmutaEstado();
+        std::cout<<centroCopia.ConsumoActual() <<std::endl;
+        std::cout<<centroCopia.getNumDispositivos();
+    }catch(std::bad_alloc &e){
+        std::cerr<<e.what();
+    }
 }

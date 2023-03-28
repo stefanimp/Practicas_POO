@@ -23,7 +23,12 @@ num_dispositivos(original.num_dispositivos){
         copia[i] = new Dispositivo(*original.dispositivos[i]);
     }
     dispositivos = copia;
-    generador = new Generador(*original.generador);
+    //Al tratarse de una relación de composición y estar creando un nuevo objeto desde un metodo deberemos comprobar que se aloja correctamente en la memoria
+    try {
+        generador = new Generador(*original.generador);
+    }catch (std::bad_alloc &e){
+        throw e;
+    }
 }
 
 DataCenter::~DataCenter() {
