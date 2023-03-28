@@ -11,13 +11,6 @@
 #include <string>
 #include <stdexcept>
 
-const int MAX_TECNICOS = 4;
-const int MIN_TECNICOS = 1;
-
-const int MAX_DISPOSITIVOS = 10;
-const int MIN_DISPOSITIVOS = 0;
-
-
 class DataCenter{
 private:
     std::string ubicacion = "";
@@ -27,6 +20,11 @@ private:
     int num_dispositivos = 0;
     Dispositivo **dispositivos = nullptr;       //De 0 a 10;
 public:
+    //Constantes
+    static const int MAX_TECNICOS = 4;
+    static const int MIN_TECNICOS = 1;
+    static const int MAX_DISPOSITIVOS = 10;
+    static const int MIN_DISPOSITIVOS = 0;
     //Constructores y destructor
     DataCenter(std::string ubicacion, float superficie);
     DataCenter(const DataCenter &original);
