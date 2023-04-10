@@ -177,3 +177,62 @@ void Mutante::addPoderFisico(std::string nombre, std::string descripcion, std::s
 
     poderes = copia;
 }
+
+void Mutante::addPoder(const Poder &poder) {
+    if(num_poderes == MAX_PODERES){
+        throw std::length_error("Mutante::addPoder: se ha alcanzado el número máximo de poderes");
+    }
+    Poder **copia = new Poder * [++num_poderes];
+    for (int i = 0; i < num_poderes - 1; ++i) {
+        copia[i] = poderes[i];
+        poderes[i] = nullptr;
+    }
+    delete[] poderes;
+
+    copia[num_poderes-1] = new Poder(poder);
+
+    poderes = copia;
+}
+
+void Mutante::addPoder(const PoderFisico &poderFisico) {
+    if(num_poderes == MAX_PODERES){
+        throw std::length_error("Mutante::addPoder: se ha alcanzado el número máximo de poderes");
+    }
+    Poder **copia = new Poder * [++num_poderes];
+    for (int i = 0; i < num_poderes - 1; ++i) {
+        copia[i] = poderes[i];
+        poderes[i] = nullptr;
+    }
+    delete[] poderes;
+
+    copia[num_poderes-1] = new PoderFisico(poderFisico);
+
+    poderes = copia;
+}
+
+void Mutante::addPoder(const PoderPsiquico &poderPsiquico) {
+    if(num_poderes == MAX_PODERES){
+        throw std::length_error("Mutante::addPoder: se ha alcanzado el número máximo de poderes");
+    }
+    Poder **copia = new Poder * [++num_poderes];
+    for (int i = 0; i < num_poderes - 1; ++i) {
+        copia[i] = poderes[i];
+        poderes[i] = nullptr;
+    }
+    delete[] poderes;
+
+    copia[num_poderes-1] = new PoderPsiquico(poderPsiquico);
+
+    poderes = copia;
+}
+
+int Mutante::getNumPoderes() const {
+    return num_poderes;
+}
+
+string Mutante::mostrarPoder(int posicion) const {
+    if(posicion < 0 || posicion >= MAX_PODERES){
+        throw std::invalid_argument("Mutante::mostrarPoder: posicion no valida");
+    }
+    return poderes[posicion]->toCSV();
+}

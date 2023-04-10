@@ -48,6 +48,13 @@ public:
     //Metodos ejercicio 3
     void addPoderPsiquico(std::string nombre, std::string descripcion, std::string afecta_a, float capacidad_destructiva);
     void addPoderFisico(std::string nombre, std::string descripcion, std::string afecta_a, float capacidad_destructiva);
+    //Métodos ejercicio 4
+    void addPoder(const Poder &poder);
+    void addPoder(const PoderFisico &poderFisico);
+    void addPoder(const PoderPsiquico &poderPsiquico);
+    //Metodos ejercicio 5
+    int getNumPoderes() const;
+    string mostrarPoder(int posicion) const;
 private:
     string _nombreReal = "---";
     string _apodo = "---";

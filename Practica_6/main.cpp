@@ -15,7 +15,10 @@ void visualiza( Mutante& m) {
               << m.toCSV() << std::endl;
     std::cout << "  Poderes : " << std::endl;
     //ToDo, Mostrar los poderes del mutante
-
+    for (int i = 0; i < m.getNumPoderes(); ++i) {
+        std::cout<<m.mostrarPoder(i);
+        std::cout<<endl;
+    }
 }
 /***@brief Visualiza los datos de todos los miembros de un equipo mutante*/
 void visualiza( EquipoMutante& eq) {
@@ -24,7 +27,9 @@ void visualiza( EquipoMutante& eq) {
               << "============================"
               << std::endl;
     //ToDo, Mostrar los mutantes del equipo (usar función anterior)
-
+    for (int i = 0; i < eq.getNumMiembros(); ++i) {
+        visualiza(*eq.getMutante(i));
+    }
 }
 
 //ToDo, Método para almacenar un vector de punteros a mutantes
