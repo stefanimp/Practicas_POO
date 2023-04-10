@@ -9,11 +9,13 @@
 
 #include "Mutante.h"
 
-Mutante::Mutante(string nombre, string apodo, int fechaN, string nacionalidad) 
+Mutante::Mutante(string nombre, string apodo, int fechaN, string nacionalidad)
     : _nombreReal(nombre),
       _apodo(apodo),
       _fechaDeNacimiento(fechaN),
-      _nacionalidad(nacionalidad)
+      _nacionalidad(nacionalidad),
+      num_poderes(0),
+      poderes(nullptr)
       {
     
 }
@@ -22,12 +24,21 @@ Mutante::Mutante(const Mutante& orig)
     : _nombreReal(orig._nombreReal),
     _apodo(orig._apodo),
     _fechaDeNacimiento(orig._fechaDeNacimiento),
-    _nacionalidad(orig._nacionalidad)
- {
-    
+    _nacionalidad(orig._nacionalidad),
+    num_poderes(orig.num_poderes){
+    poderes = new Poder * [num_poderes];
+    for (int i = 0; i < num_poderes; ++i) {
+        poderes[i] = new Poder(*orig.poderes[i]);
+    }
 }
 
 Mutante::~Mutante() {
+    for (int i = 0; i < num_poderes; ++i) {
+        delete poderes[i];
+        poderes[i] = nullptr;
+    }
+    delete[] poderes;
+    poderes = nullptr;
 }
 
 void Mutante::setNombreReal(string nombreReal) {
@@ -87,3 +98,50 @@ Mutante& Mutante::operator=(const Mutante& orig) {
     return  *this;
 }
 
+void Mutante::addPoder(std::string nombre, std::string descripcion, std::string afecta_a, float capacidad_destructiva) {
+    if(num_poderes == MAX_PODERES){
+        throw std::length_error("Mutante::addPoder: se ha alcanzado el número máximo de poderes");
+    }
+    Poder **copia = new Poder * [++num_poderes];
+    for (int i = 0; i < num_poderes - 1; ++i) {
+        copia[i] = poderes[i];
+        poderes[i] = nullptr;
+    }
+    delete[] poderes;
+
+    copia[num_poderes-1] = new Poder(nombre, descripcion, afecta_a, capacidad_destructiva);
+
+    poderes = copia;
+}
+
+void Mutante::desplazarPoderesIzquierda(int posicion) {
+    for (int i = posicion; i < num_poderes-1; ++i) {
+        poderes[i] = poderes[i+1];
+    }
+    poderes[num_poderes-1] = nullptr;
+}
+
+void Mutante::borrarPoder(int cual) {
+    if(cual <= 0 || cual > MAX_PODERES){
+        throw std::invalid_argument("Mutante::borrarPoder: no existe poder en la posición indicada");
+    }
+    this->desplazarPoderesIzquierda(cual);
+
+    Poder **copia = new Poder * [--num_poderes];
+
+    for (int i = 0; i < num_poderes; ++i) {
+        copia[i] = poderes[i];
+        poderes[i] = nullptr;
+    }
+    delete[] poderes;
+
+    poderes = copia;
+}
+
+float Mutante::capacidadDestructivaTotal() const {
+    float capacidad_d_total = 0;
+    for (int i = 0; i < num_poderes; ++i) {
+        capacidad_d_total += poderes[i]->getCapacidadDestructiva();
+    }
+    return capacidad_d_total;
+}

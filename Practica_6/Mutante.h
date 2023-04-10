@@ -7,6 +7,7 @@
 
 #ifndef MUTANTE_H
 #define MUTANTE_H
+#include "Poder.h"
 
 #include <string>
 
@@ -37,12 +38,19 @@ public:
 
     Mutante& operator=(const Mutante& orig);
 
+    //Metodos ejercicio 2
+    void addPoder(std::string nombre, std::string descripcion, std::string afecta_a, float capacidad_destructiva);
+    void desplazarPoderesIzquierda(int posicion);
+    void borrarPoder(int cual);
+    float capacidadDestructivaTotal() const;
+
 private:
     string _nombreReal = "---";
     string _apodo = "---";
     int _fechaDeNacimiento = 0;
     string _nacionalidad = "---";
-
+    int num_poderes = 0;
+    Poder **poderes = nullptr;
 };
 
 #endif /* MUTANTE_H */
