@@ -145,3 +145,35 @@ float Mutante::capacidadDestructivaTotal() const {
     }
     return capacidad_d_total;
 }
+
+void Mutante::addPoderPsiquico(std::string nombre, std::string descripcion, std::string afecta_a,float capacidad_destructiva) {
+    if(num_poderes == MAX_PODERES){
+        throw std::length_error("Mutante::addPoder: se ha alcanzado el número máximo de poderes");
+    }
+    Poder **copia = new Poder * [++num_poderes];
+    for (int i = 0; i < num_poderes - 1; ++i) {
+        copia[i] = poderes[i];
+        poderes[i] = nullptr;
+    }
+    delete[] poderes;
+
+    copia[num_poderes-1] = new PoderPsiquico(nombre, descripcion, afecta_a, capacidad_destructiva);
+
+    poderes = copia;
+}
+
+void Mutante::addPoderFisico(std::string nombre, std::string descripcion, std::string afecta_a,float capacidad_destructiva) {
+    if(num_poderes == MAX_PODERES){
+        throw std::length_error("Mutante::addPoder: se ha alcanzado el número máximo de poderes");
+    }
+    Poder **copia = new Poder * [++num_poderes];
+    for (int i = 0; i < num_poderes - 1; ++i) {
+        copia[i] = poderes[i];
+        poderes[i] = nullptr;
+    }
+    delete[] poderes;
+
+    copia[num_poderes-1] = new PoderFisico(nombre, descripcion, afecta_a, capacidad_destructiva);
+
+    poderes = copia;
+}

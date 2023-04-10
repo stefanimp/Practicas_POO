@@ -8,6 +8,8 @@
 #ifndef MUTANTE_H
 #define MUTANTE_H
 #include "Poder.h"
+#include "PoderPsiquico.h"
+#include "PoderFisico.h"
 
 #include <string>
 
@@ -43,7 +45,9 @@ public:
     void desplazarPoderesIzquierda(int posicion);
     void borrarPoder(int cual);
     float capacidadDestructivaTotal() const;
-
+    //Metodos ejercicio 3
+    void addPoderPsiquico(std::string nombre, std::string descripcion, std::string afecta_a, float capacidad_destructiva);
+    void addPoderFisico(std::string nombre, std::string descripcion, std::string afecta_a, float capacidad_destructiva);
 private:
     string _nombreReal = "---";
     string _apodo = "---";
