@@ -28,7 +28,8 @@ EquipoMutante::EquipoMutante(string nombre, string base)
 EquipoMutante::EquipoMutante(const EquipoMutante& orig)
     : _nombre(orig._nombre),
     _base(orig._base),
-    _numMiembros(orig._numMiembros) {
+    _numMiembros(orig._numMiembros),
+    capacidadDestrutiva(orig.capacidadDestrutiva){
     
     for (int i = 0; i < _MAX_MIEMBROS_; i++) {
         _miembros[i] = orig._miembros[i];
@@ -70,6 +71,7 @@ void EquipoMutante::addMutante(Mutante *m) {
 
     _miembros[_numMiembros] = m;
     _numMiembros++;
+
 }
 
 Mutante* EquipoMutante::getMutante(int cual) {
@@ -100,6 +102,7 @@ Mutante* EquipoMutante::sacaMutante(int cual) {
     _numMiembros--;
 
     return  aux;
+
 }
 
 string EquipoMutante::toCSV() {
@@ -120,11 +123,20 @@ EquipoMutante& EquipoMutante::operator=(const EquipoMutante& orig) {
         _nombre = orig._nombre;
         _base = orig._base;
         _numMiembros = orig._numMiembros;
-
+        capacidadDestrutiva = orig.capacidadDestrutiva;
         for (int i = 0; i < _MAX_MIEMBROS_; i++) {
             _miembros[i] = orig._miembros[i];
         }
     }
 
     return  *this;
+}
+
+float EquipoMutante::getCapacidadDestructiva() const {
+    float capacidad_destructiva = 0;
+    for (int i = 0; i < _numMiembros; ++i) {
+        capacidad_destructiva += _miembros[i]->capacidadDestructivaTotal();
+    }
+
+    return capacidad_destructiva;
 }

@@ -5,7 +5,7 @@
 #ifndef PRUEBA_PODER_H
 #define PRUEBA_PODER_H
 
-#include <string>s
+#include <string>
 #include <sstream>
 
 class Poder{

@@ -39,11 +39,15 @@ class EquipoMutante
       Mutante* getMutante ( int cual );
       Mutante* sacaMutante(int cual);
 
+      //Metodo ejercicio clase
+      float getCapacidadDestructiva() const;
+
     private:
       string _nombre = "---";
       string _base = "---";
       Mutante* _miembros[_MAX_MIEMBROS_];
       int _numMiembros = 0;
+      float capacidadDestrutiva = 0;
           
 };
 
