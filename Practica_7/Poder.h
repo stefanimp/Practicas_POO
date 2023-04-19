@@ -29,13 +29,13 @@ class Poder
       void setNombre ( std::string nombre );
       std::string getNombre ( ) const;
       void setCapacidadDestructiva ( float capacidadDestructiva );
-      float getCapacidadDestructiva ( ) const;
+      virtual float getCapacidadDestructiva ( ) const;
       void setAfectaA ( std::string afectaA );
       std::string getAfectaA ( ) const;
       void setDescripcion ( std::string descripcion );
       std::string getDescripcion ( ) const;
 
-      std::string toCSV ( ) const;
+      virtual std::string toCSV ( ) const;
       Poder& operator= ( const Poder& orig );
       
 };

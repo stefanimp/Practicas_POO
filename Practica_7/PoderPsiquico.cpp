@@ -31,3 +31,14 @@ PoderPsiquico& PoderPsiquico::operator= ( const PoderPsiquico& orig )
 
    return  *this;
 }
+
+float PoderPsiquico::getCapacidadDestructiva() const {
+    return (Poder::getCapacidadDestructiva()*lucidez);
+}
+
+void PoderPsiquico::setLucidez(float lucidez) {
+    if(lucidez < MIN_LUCIDEZ || lucidez > MAX_LUCIDEZ){
+        throw std::invalid_argument("PoderPsiquico::setLucide: Valor no valido");
+    }
+    this->lucidez = lucidez;
+}

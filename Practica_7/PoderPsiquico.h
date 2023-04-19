@@ -16,16 +16,24 @@
 class PoderPsiquico : public Poder
 {
    public:
+    //COnstantes
+    const float MAX_LUCIDEZ = 1;
+    const float MIN_LUCIDEZ = 0;
+
       PoderPsiquico ( ) = default;
       PoderPsiquico ( std::string nmb, std::string dsc, std::string aA, float cD );
       PoderPsiquico ( const PoderPsiquico& orig );
       virtual ~PoderPsiquico ( );
       PoderPsiquico& operator= ( const PoderPsiquico& orig );
-
+      //Getters y setters creados por mi
+      void setLucidez(float lucidez);
+      float getLucidez() const;
+      virtual float getCapacidadDestructiva() const override;
       //ToDo, redefinir toCSV y getCapacidadDestructiva
 
    private:
-      //ToDo, añadir lucidez
+      //ToDo, añadir lucidez (HECHO)
+      float lucidez = 0;
 };
 
 #endif /* PODERPSIQUICO_H */
