@@ -103,6 +103,7 @@ int inicializaMutantes ( Mutante* v[], int tamv )
 
 int main ( int argc, char** argv )
 {
+
    const int MAXMUTANTES = 5;
    Mutante* mutantes[MAXMUTANTES];
    int numMutantes = 0;
