@@ -68,7 +68,6 @@ void almacenaMutantesCSV ( Mutante* v[], unsigned int tamv,
 }
 
 //ToDo
-/*
 /**@brief Recupera los mutantes de un fichero CSV en un vector
    @param Mutante* v[], vector de punteros a objetos mutantes
    @param unsigned int tamv, número máximo de mutantes que se pueden almacenar en v
@@ -77,11 +76,34 @@ void almacenaMutantesCSV ( Mutante* v[], unsigned int tamv,
    @post  Recupera mutantes del fichero y los crea en memoria dinámica, asociando cada uno a una posición del vector
    @return número de mutantes leídos y creados (como máximo será tamv)
  */
-/*
-int recuperaMutantesCSV ( Mutante* v[], unsigned int tamv, std::string nomArchivo)
-{
+
+int recuperaMutantesCSV ( Mutante* v[], unsigned int tamv, std::string nomArchivo){
+    //Contador de cuantos mutantes recuperamos del archivo
+    int num_mutantes = 0;
+    //Instanciamos el flujo de entrada
+    ifstream fe;
+
+    std::string cad;
+    //Asociamos el flujo con un archivo y lo abrimos
+    fe.open(nomArchivo.c_str());
+    //Si el archico se ha cargado correctamente y no hay banderas de error
+    if(fe.good()){
+        //Mientras no se haya llegado al final del archivo y el numero de mutantes almacenado no supere el límite
+        while (!fe.eof() && num_mutantes < tamv){
+            getline(fe,cad);    //Toma una linea del archivo
+            if(cad != ""){              //Ignoramos líneas en blanco
+                //Pasa la línea a uno de los objetos del array para que la procese y copie los datos que contiene en sus atributos
+                v[num_mutantes++]->fromCSV(cad);
+                cad=""; //Evitamos introducir dos veces la última línea
+            }
+        }
+        //Cerramos el flujo de entrada
+        fe.close();
+    }
+    return num_mutantes;
+
 }
- */
+
 /**@brief inicializa vector de mutantes y crea algunos
    @pre v debe tener al menos tamv posiciones
    @post se inicializan todas las posiciones de v a 0 o a un nuevo mutante 
