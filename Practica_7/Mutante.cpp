@@ -183,8 +183,7 @@ void Mutante::borraPoderes ( )
 float Mutante::capacidadDestructivaTotal ( ) const
 {
    float aux = 0;
-   for ( int i = 0; i < _numPoderes; i++ )
-   {
+   for ( int i = 0; i < _numPoderes; i++ ){
       aux += _poderes[i]->getCapacidadDestructiva ( );
    }
 
@@ -214,6 +213,13 @@ void Mutante::fromCSV ( std::string& cadena )
    ss>>_fechaDeNacimiento;
    ss.ignore ( );
    std::getline ( ss, _nacionalidad, ';' );
+}
+
+bool Mutante::operator <(const Mutante &segundo) {
+    if (this->capacidadDestructivaTotal() < segundo.capacidadDestructivaTotal()){
+        return true;
+    }
+    return false;
 }
 
 Mutante& Mutante::operator= ( const Mutante& orig )

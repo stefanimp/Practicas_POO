@@ -49,8 +49,8 @@ class Mutante
 
       Mutante& operator= ( const Mutante& orig );
 
-      // ToDo, operador de comparación '<' de dos mutantes en base a su
-      // capacidad destructiva
+      // ToDo, operador de comparación '<' de dos mutantes en base a su capacidad destructiva (HECHO)
+      bool operator <(const Mutante& orignial);
 
       void addPoder ( std::string nombre, std::string descripcion,
                       std::string afectaA, float capacidadD );

@@ -19,7 +19,7 @@ PoderPsiquico::PoderPsiquico ( string nmb, string dsc, string aA, float cD, floa
                Poder ( nmb, dsc, aA, cD ),lucidez(luciddez)
 { }
 
-PoderPsiquico::PoderPsiquico ( const PoderPsiquico& orig ):
+PoderPsiquico:: PoderPsiquico ( const PoderPsiquico& orig ):
                Poder(orig), lucidez(orig.lucidez){ }
 
 PoderPsiquico::~PoderPsiquico ( ){ }

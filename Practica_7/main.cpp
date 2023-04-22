@@ -8,6 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include "EquipoMutante.h"
+#include "ordena.h"
 
 using namespace std;
 
@@ -67,6 +68,7 @@ void almacenaMutantesCSV ( Mutante* v[], unsigned int tamv,
 }
 
 //ToDo
+/*
 /**@brief Recupera los mutantes de un fichero CSV en un vector
    @param Mutante* v[], vector de punteros a objetos mutantes
    @param unsigned int tamv, número máximo de mutantes que se pueden almacenar en v
@@ -75,10 +77,11 @@ void almacenaMutantesCSV ( Mutante* v[], unsigned int tamv,
    @post  Recupera mutantes del fichero y los crea en memoria dinámica, asociando cada uno a una posición del vector
    @return número de mutantes leídos y creados (como máximo será tamv)
  */
+/*
 int recuperaMutantesCSV ( Mutante* v[], unsigned int tamv, std::string nomArchivo)
 {
 }
-    
+ */
 /**@brief inicializa vector de mutantes y crea algunos
    @pre v debe tener al menos tamv posiciones
    @post se inicializan todas las posiciones de v a 0 o a un nuevo mutante 
@@ -126,7 +129,7 @@ int main ( int argc, char** argv )
    equipo2.addMutante ( mutantes[4] );
 
    //Diferentes formas de añadir poderes: usando datos o objetos de tipo Poder
-   mutantes[0]->addPoder ( "longevidad", "vivir mucho", "su cuerpo", 0 );
+   mutantes[0]->addPoder ( "longevidad", "vivir mucho", "su cuerpo", 1 );
    mutantes[1]->addPoder ( Poder( "absorción", "absorve poderes de otros mutantes",
                                   "cualquier mutante", 100 ) );
    mutantes[2]->addPoderFisico ( "clima", "puede manejar el clima", "atmósfera",
@@ -136,6 +139,7 @@ int main ( int argc, char** argv )
    mutantes[4]->addPoder ( PoderPsiquico ( "AtacaMente",
                                            "ataca la mente de su enemigo",
                                            "cualquiera", 150 ) );
+   //Hay que tener en cuenta que el mutante que ocupa la posición 4 tiene un poder psiquico y al construirlo no le asignamos una lucidez, como el método getDestructiva devuelve la capacidad destructiva multiplicada por la lucidez, en este caso este poder tendrá una capacidad destructiva total de 0
 
    visualiza ( equipo1 );
    visualiza ( equipo2 );
@@ -153,6 +157,7 @@ int main ( int argc, char** argv )
       delete mutantes[i];
       mutantes[i] = nullptr;
    }
-   
+
+
    return 0;
 }
