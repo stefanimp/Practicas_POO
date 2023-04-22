@@ -101,3 +101,10 @@ Poder& Poder::operator= ( const Poder& orig )
 
    return *this;
 }
+
+bool Poder::operator<(const Poder &segundo_poder) {
+    if (this->getCapacidadDestructiva() < segundo_poder.getCapacidadDestructiva()){
+        return true;
+    }
+    return false;
+}

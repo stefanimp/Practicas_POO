@@ -67,7 +67,7 @@ void almacenaMutantesCSV ( Mutante* v[], unsigned int tamv,
    }
 }
 
-//ToDo
+//ToDo (HECHO)
 /**@brief Recupera los mutantes de un fichero CSV en un vector
    @param Mutante* v[], vector de punteros a objetos mutantes
    @param unsigned int tamv, número máximo de mutantes que se pueden almacenar en v
@@ -173,6 +173,7 @@ int main ( int argc, char** argv )
    //Destructiva
 
    almacenaMutantesCSV ( mutantes, 5, archivoMutantes );
+
 
    for ( int i = 0; i < MAXMUTANTES; i++ )
    {

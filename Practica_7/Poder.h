@@ -37,6 +37,7 @@ class Poder
 
       virtual std::string toCSV ( ) const;
       Poder& operator= ( const Poder& orig );
+      bool operator < (const Poder &segundo_poder);
       
 };
 
