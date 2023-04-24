@@ -5,6 +5,7 @@
  */
 
 #include <iostream>
+#include <fstream>
 #include "EquipoMutante.h"
 
 using namespace std;
@@ -32,8 +33,21 @@ void visualiza( EquipoMutante& eq) {
     }
 }
 
-//ToDo, Método para almacenar un vector de punteros a mutantes
-//almacenaMutantesCSV()
+//ToDo, Método para almacenar un vector de punteros a mutantes (HECHO)
+//!!!!!IMPORTANTE¡¡¡¡¡¡ El archivo se está creando dentro de la carpeta cmake build debug
+void almacenaMutantesCSV(Mutante *mutantes[], int tamv, std::string nomArch){
+    std::ofstream archivo;
+    archivo.open(nomArch.c_str());  //Creamos el archivo con el nombre almacenado en nomArch
+    if(archivo.good()){                 //Si se ha creado con éxito entonces comienza el bucle para escribir los datos en el
+        for (int i = 0; i < tamv; ++i) {
+            archivo<<mutantes[i]->toCSV()<<std::endl;
+        }
+        archivo.close();
+        std::cout<<"Los datos se han escrito correctamente en el archivo."<<std::endl;
+    }else{
+        std::cout<<"El archivo no se ha abierto correctamente";
+    }
+}
 
 
 int main(int argc, char** argv) {
@@ -74,8 +88,7 @@ int main(int argc, char** argv) {
     visualiza(equipo2);
     
    //Guardamos datos de mutantes en fichero CSV
-
-
+   almacenaMutantesCSV(mutantes,5,"mutantes.csv");
    //Ejercicios de clase
 
 
@@ -84,7 +97,6 @@ int main(int argc, char** argv) {
    } else{
        std::cout <<"El primer equipo tiene mayor capacidad destructiva";
    }
-
    // Destruye todos los objetos creados en memoria dinámica antes de la
    // finalización del programa
     for (int i = 0; i < 5; ++i) {
