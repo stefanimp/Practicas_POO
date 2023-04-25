@@ -51,8 +51,7 @@ void visualiza ( )
    @post  Almacena los datos simples (sin poderes) de cada mutante en formato CSV en una línea diferente del Archivo indicado
  */
 void almacenaMutantesCSV ( Mutante* v[], unsigned int tamv,
-                           std::string nomArchivo)
-{
+                           std::string nomArchivo){
    std::ofstream archivo;
    archivo.open ( nomArchivo.c_str() ); //c_str() no es necesario si compilador soporta >= C++11
 
@@ -135,7 +134,9 @@ int main ( int argc, char** argv )
    std::string archivoMutantes="mutantes.csv";
 
    numMutantes = inicializaMutantes ( mutantes, MAXMUTANTES );
-   //ToDo, recuperar mutantes del archivo 
+   //ToDo, recuperar mutantes del archivo
+
+    recuperaMutantesCSV(mutantes,5,archivoMutantes);
 
    //ToDo, Visualizar vector de muntantes en formato CSV
 
@@ -181,6 +182,10 @@ int main ( int argc, char** argv )
       mutantes[i] = nullptr;
    }
 
+   Mutante *mutantes2[2];
+   mutantes2[0] = new Mutante("Manolo","Manolito",122334,"Español");
+   mutantes2[1] = new Mutante("Miguel","Miguelon",122334,"MEW");
+    almacenaMutantesCSV(mutantes2,2,"Prueba.txt");
 
    return 0;
 }
