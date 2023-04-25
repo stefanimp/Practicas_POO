@@ -39,8 +39,10 @@ void visualiza ( EquipoMutante& eq )
 
 //ToDo
 /***@brief Visualiza un vector de mutantes en formato CSV*/
-void visualiza ( )
-{
+void visualiza (Mutante *mutantes[], int numMutantes){
+    for (int i = 0; i < numMutantes; ++i) {
+        std::cout<<mutantes[i]->toCSV() <<std::endl;
+    }
 }
 
 
@@ -140,6 +142,7 @@ int main ( int argc, char** argv )
 
    //ToDo, Visualizar vector de muntantes en formato CSV
 
+    visualiza(mutantes,5);
 
    //Creación de los equipos y configuración de poderes
    EquipoMutante equipo1 ( "Patrulla X", "Mansión" );
