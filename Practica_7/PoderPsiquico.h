@@ -35,7 +35,7 @@ class PoderPsiquico : public Poder
 
    private:
       //ToDo, añadir lucidez (HECHO)
-      float lucidez = 0;
+      float lucidez = 1;
 };
 
 #endif /* PODERPSIQUICO_H */

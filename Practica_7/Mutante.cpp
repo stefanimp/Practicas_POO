@@ -91,8 +91,7 @@ int Mutante::getNumPoderes ( ) const
    return _numPoderes;
 }
 
-const Poder& Mutante::getPoder ( int cual )
-{
+Poder& Mutante::getPoder ( int cual ) const {
    if ( (cual < 0) || (cual >= _numPoderes) )
    {
       throw std::invalid_argument ( "Mutante::getDon: número de don incorrecto" );
@@ -187,7 +186,7 @@ void Mutante::borraPoderes ( ){
 float Mutante::capacidadDestructivaTotal ( ) const
 {
    float aux = 0;
-   for ( int i = 0; i < _numPoderes; i++ ){
+   for ( int i = 0; i < this->_numPoderes; i++ ){
       aux += _poderes[i]->getCapacidadDestructiva ( );
    }
 
@@ -220,7 +219,7 @@ void Mutante::fromCSV ( std::string& cadena )
 }
 
 bool Mutante::operator <(const Mutante &segundo) {
-    if (this->capacidadDestructivaTotal() < segundo.capacidadDestructivaTotal()){
+    if ((capacidadDestructivaTotal()) < (segundo.capacidadDestructivaTotal())){
         return true;
     }
     return false;

@@ -139,11 +139,11 @@ int main ( int argc, char** argv )
    std::string archivoMutantes="mutantes.csv";
 
    numMutantes = inicializaMutantes ( mutantes, MAXMUTANTES );
-   //ToDo, recuperar mutantes del archivo
+   //ToDo, recuperar mutantes del archivo (HECHO)
 
     recuperaMutantesCSV(mutantes,5,archivoMutantes);
 
-   //ToDo, Visualizar vector de muntantes en formato CSV
+   //ToDo, Visualizar vector de mutantes en formato CSV (HECHO)
 
     visualiza(mutantes,5);
 
@@ -162,13 +162,34 @@ int main ( int argc, char** argv )
    mutantes[1]->addPoder ( Poder( "absorción", "absorve poderes de otros mutantes",
                                   "cualquier mutante", 100 ) );
    mutantes[2]->addPoderFisico ( "clima", "puede manejar el clima", "atmósfera",
-                                 150 );
+                                 151 );
    mutantes[3]->addPoder( PoderFisico ( "rayo", "expulsa láser por los ojos",
                                         "lo que pille por delante", 500 ) );
    mutantes[4]->addPoder ( PoderPsiquico ( "AtacaMente",
                                            "ataca la mente de su enemigo",
                                            "cualquiera", 150 ) );
-   //Hay que tener en cuenta que el mutante que ocupa la posición 4 tiene un poder psiquico y al construirlo no le asignamos una lucidez, como el método getDestructiva devuelve la capacidad destructiva multiplicada por la lucidez, en este caso este poder tendrá una capacidad destructiva total de 0
+
+   //Ejercicio 9.3
+   PoderPsiquico asfixia("Asfixia","Pues asfixia xd","Oponentes biologicos",600);
+   //Modificamos la lucidez
+   asfixia.setLucidez(0.75);
+   //Visualidamos la capacidad destructiva total del mutante antes de añadirle el poder asfixia
+   std::cout <<"Capaciada destructiva total antes de agnadir asfixia: "<<mutantes[0]->capacidadDestructivaTotal() <<std::endl;
+    mutantes[0]->addPoder(asfixia);
+    //Visualidamos la capacidad destructiva total del mutante despues de añadirle el poder asfixia
+    std::cout <<"Capaciada destructiva total despues de agnadir asfixia: "<<mutantes[2]->capacidadDestructivaTotal() <<std::endl;
+
+    //Vemos que es importante colocar el para que la comparacíon se realice de manera correcta, sin esto no funcionará
+    if(*mutantes[4] < *mutantes[1]){
+        std::cout<<"Miauuuuuuuuuuuuuuuuuu";
+    } else{
+        std::cout<<"EEEEEEEEEEEEEE";
+    }
+
+    //Ejercicio 9.4
+    ordena(mutantes,5);
+    std::cout <<std::endl<<std::endl<<std::endl<<mutantes[0]->capacidadDestructivaTotal();
+
 
    visualiza ( equipo1 );
    visualiza ( equipo2 );
@@ -187,11 +208,6 @@ int main ( int argc, char** argv )
       delete mutantes[i];
       mutantes[i] = nullptr;
    }
-
-   Mutante *mutantes2[2];
-   mutantes2[0] = new Mutante("Manolo","Manolito",122334,"Español");
-   mutantes2[1] = new Mutante("Miguel","Miguelon",122334,"MEW");
-    almacenaMutantesCSV(mutantes2,2,"Prueba.txt");
 
    return 0;
 }

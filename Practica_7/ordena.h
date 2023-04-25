@@ -30,8 +30,8 @@
             if(*valores[j] < *valores[posMenor]){
                 posMenor = j;
             }
-            intercambia(valores[i], valores[posMenor]);
         }
+        intercambia(valores[i], valores[posMenor]);
     }
  }
 
