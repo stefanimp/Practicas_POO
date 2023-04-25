@@ -61,6 +61,7 @@ class Mutante
       void addPoder ( const Poder& poder );
       void addPoder ( const PoderFisico& poder );
       void addPoder ( const PoderPsiquico& poder );
+      void setNumPoderes(int numPoderes);
       int getNumPoderes ( ) const;
       const Poder& getPoder ( int cual );
       void borraPoder ( int cual );

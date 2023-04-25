@@ -82,6 +82,9 @@ string Mutante::getApodo ( ) const
 {
    return _apodo;
 }
+void Mutante::setNumPoderes(int numPoderes) {
+    this->_numPoderes = numPoderes;
+}
 
 int Mutante::getNumPoderes ( ) const
 {
@@ -172,12 +175,13 @@ void Mutante::borraPoder ( int cual )
    _numPoderes--;
 }
 
-void Mutante::borraPoderes ( )
-{
-   for ( int i = _numPoderes-1; i >=0 ; i-- )
-   {
-      borraPoder ( i ); //Borramos hacia atrás para evitar la reorganización de huecos
-   }
+void Mutante::borraPoderes ( ){
+    if(_numPoderes != 0){
+        for ( int i = _numPoderes-1; i >=0 ; i-- )
+        {
+            borraPoder ( i ); //Borramos hacia atrás para evitar la reorganización de huecos
+        }
+    }
 }
 
 float Mutante::capacidadDestructivaTotal ( ) const

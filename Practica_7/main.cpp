@@ -96,6 +96,9 @@ int recuperaMutantesCSV ( Mutante* v[], unsigned int tamv, std::string nomArchiv
                 //Pasa la línea a uno de los objetos del array para que la procese y copie los datos que contiene en sus atributos
                 v[num_mutantes++]->fromCSV(cad);
                 cad=""; //Evitamos introducir dos veces la última línea
+                //Como desde el formato csv no implementamos poderes deberemos borrar(en caso de que existan) los poderes que había en el anteriror mutante donde ahora está el del formato csv
+                v[num_mutantes-1]->borraPoderes();
+                v[num_mutantes-1]->setNumPoderes(0);
             }
         }
         //Cerramos el flujo de entrada
