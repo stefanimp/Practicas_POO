@@ -177,19 +177,34 @@ int main ( int argc, char** argv )
    std::cout <<"Capaciada destructiva total antes de agnadir asfixia: "<<mutantes[0]->capacidadDestructivaTotal() <<std::endl;
     mutantes[0]->addPoder(asfixia);
     //Visualidamos la capacidad destructiva total del mutante despues de añadirle el poder asfixia
-    std::cout <<"Capaciada destructiva total despues de agnadir asfixia: "<<mutantes[2]->capacidadDestructivaTotal() <<std::endl;
+    std::cout <<"Capaciada destructiva total despues de agnadir asfixia: "<<mutantes[0]->capacidadDestructivaTotal() <<std::endl;
 
     //Vemos que es importante colocar el para que la comparacíon se realice de manera correcta, sin esto no funcionará
+    /*
     if(*mutantes[4] < *mutantes[1]){
         std::cout<<"Miauuuuuuuuuuuuuuuuuu";
     } else{
         std::cout<<"EEEEEEEEEEEEEE";
     }
+     */
 
     //Ejercicio 9.4
     ordena(mutantes,5);
-    std::cout <<std::endl<<std::endl<<std::endl<<mutantes[0]->capacidadDestructivaTotal();
+    for (int i = 0; i < MAXMUTANTES; ++i) {
+        std::cout<<mutantes[i]->getNombreReal() <<std::endl;
+    }
 
+    //Ejercicio 9.5
+    Poder *poderes[4];
+    poderes[0] = new Poder("Poder 1","dawdw","A tu hermano",9669);
+    poderes[1] = new PoderPsiquico("Poder 2","dadw","A tu padre",696969,0.5);
+    poderes[2] = new PoderFisico("Poder 3","adawd","A tu prima",100);
+    poderes[3] = new Poder("Poder 4","dawawd","a tu abuela",1);
+
+    ordena(poderes,4);
+    for (int i = 0; i < 4; ++i) {
+        std::cout<<poderes[i]->getCapacidadDestructiva() <<std::endl;
+    }
 
    visualiza ( equipo1 );
    visualiza ( equipo2 );
