@@ -217,6 +217,10 @@ int main ( int argc, char** argv )
 
    almacenaMutantesCSV ( mutantes, 5, archivoMutantes );
 
+    for (int i = 0; i < 4; ++i) {
+        delete poderes[i];
+        poderes[i] = nullptr;
+    }
 
    for ( int i = 0; i < MAXMUTANTES; i++ )
    {
