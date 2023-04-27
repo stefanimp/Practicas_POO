@@ -12,14 +12,7 @@
 
 class Item {
 public:
-    Item() = default;
-    Item(std::string descripcion);
-    Item(const Item& orig) = default;
-    virtual ~Item();
-    void setDescripcion(std::string descripcion);
-    std::string getDescripcion() const;
-private:
-    std::string _descripcion = "Desconocido";
+    virtual std::string getDescripcion() const = 0;
 };
 
 #endif /* ITEM_H */
