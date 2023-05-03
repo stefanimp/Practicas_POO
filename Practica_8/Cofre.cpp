@@ -45,6 +45,9 @@ int Cofre::cuantosCaben() {
 }
 
 void Cofre::mete(Item* item) {
+    if(item == nullptr){
+        throw std::invalid_argument("Cofre::mete: no se puede añadir una direccion de memoria vacia.");
+    }
     if (_numItems==_maxItems)
         throw std::out_of_range("[Cofre::mete] No caben más elementos en el cofre");
     _items[_numItems++]=item;
@@ -54,6 +57,9 @@ void Cofre::mete(Item* item) {
  * @return Referencia al objeto indicado del cofre
    @throw std::out_of_range si el elemento no existe*/
 Item& Cofre::consulta(int cual) {
+    if(_numItems == 0){
+        throw EmptyContainer("Cofre::consulta: el cofre está vacío");
+    }
     if (cual<=0 || cual >_numItems)
         throw std::out_of_range("[Cofre::consulta] El elemento indicado no existe");
     return *_items[cual-1];
@@ -64,6 +70,9 @@ Item& Cofre::consulta(int cual) {
  * @return Extrae del cofre y devuelve el puntero al Item indicado
    @throw std::out_of_range si el elemento no exist*/
 Item* Cofre::saca(int cual) {
+    if(_numItems == 0){
+        throw EmptyContainer("Cofre::consulta: el cofre está vacío");
+    }
     if (cual<=0 || cual >_numItems)
         throw std::out_of_range("[Cofre::mete] El elemento indicado no existe");
     Item* elemento = _items[cual-1];

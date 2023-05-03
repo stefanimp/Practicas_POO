@@ -9,7 +9,10 @@
 #include <iostream>
 
 #include "Cofre.h"
-#include "Item.h"
+#include "Bloque.h"
+#include "Espada.h"
+#include "Filete.h"
+
 using namespace std;
 
 /**Inicializa el vector de items inicial
@@ -19,11 +22,11 @@ using namespace std;
 int inicializaItems(Item* v[], int tamv) {
     int numItems=0;
 
-    v[numItems++] = new Item("Bloque de tierra (5)");
-    v[numItems++] = new Item("Bloque de tierra (8)");
-    v[numItems++] = new Item("Bloque de tierra (1)");    
-    v[numItems++] = new Item("Espada de madera");   
-    v[numItems++] = new Item("Muslo de pollo");       
+    v[numItems++] = new Bloque("Bloque de tierra",5);
+    v[numItems++] = new Bloque("Bloque de tierra",8);
+    v[numItems++] = new Bloque("Bloque de tierra",1);
+    v[numItems++] = new Espada("Espada de madera");
+    v[numItems++] = new Filete("Muslo de pollo");
 
     //Asigna nullptr el resto de posiciones no ocupadas
     for (int i = numItems; i < tamv; i++) {
@@ -62,19 +65,26 @@ int main(int argc, char** argv) {
     //Inicializamos algunos objetos de prueba
     int numObjetos=inicializaItems(objetos,MAXITEMS);
 
-    Cofre c; //Creamos un cofre con 27 posiciones
+
+    Cofre c(27); //Creamos un cofre con 27 posiciones
     
     //Metemos todos los objetos en el cofre
-    
-    for (int i = 0; i < numObjetos; i++) {
-         c.mete(objetos[i]);
+    try {
+        for (int i = 0; i < numObjetos; i++) {
+            c.mete(objetos[i]);
+        }
+    }catch (std::exception &e){
+        std::cout<<e.what();
     }
-
-    visualiza(c);    
+    try {
+        visualiza(c);
+    }catch (std::exception &e){
+        std::cout<<e.what();
+    }
     
     //Liberamos recursos
     liberaItems(objetos,numObjetos);
-    
+
     return 0;
 }
 

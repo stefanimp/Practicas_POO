@@ -6,6 +6,7 @@
  */
 
 #include "Item.h"
+#include "EmptyContainer.h"
 #include <string>
 
 #ifndef COFRE_H
