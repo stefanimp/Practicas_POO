@@ -14,6 +14,7 @@ public:
     Cofre(const Cofre& orig);
     virtual ~Cofre();
     virtual std::string getDescripcion() const override;
+    virtual void mete(Item *item) override;
 };
 
 #endif //PRUEBA_COFRE_H

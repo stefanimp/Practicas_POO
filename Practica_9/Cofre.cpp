@@ -24,3 +24,14 @@ std::string Cofre::getDescripcion() const {
     ss<<"Hay "<<ContenedorItems::cuantosHay() <<" elementos";
 
 }
+
+void Cofre::mete(Item *item) {
+    //Utilizamos el operador dynamic_cast para realizar una conversión dinámica de un objeto a un tipo
+    // deseado y comprobar si la conversión fue exitosa. Si la conversión es exitosa, el operador devuelve
+    // un puntero al objeto convertido. Si la conversión no es posible, devuelve un puntero nulo.
+    Cofre *prueba = dynamic_cast<Cofre*>(item);
+    if(prueba != nullptr){
+        throw std::invalid_argument("Cofre::mete: no puedes meter un cofre dentro de otro cofre");
+    }
+    ContenedorItems::mete(item);
+}
