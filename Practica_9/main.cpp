@@ -8,7 +8,7 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "Cofre.h"
+#include "Contenedor.h"
 #include "Item.h"
 #include "Bloque.h"
 #include "Espada.h"
