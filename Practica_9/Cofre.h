@@ -5,15 +5,15 @@
 #ifndef PRUEBA_COFRE_H
 #define PRUEBA_COFRE_H
 
-#include "Item.h"
-#include "Contenedor.h"
+#include "ContenedorItems.h"
 
-class Cofre:public Contenedor{
+class Cofre:public ContenedorItems, public Item{
 public:
     Cofre();
     Cofre(int cuantosCaben);
     Cofre(const Cofre& orig);
     virtual ~Cofre();
+    virtual std::string getDescripcion() const override;
 };
 
 #endif //PRUEBA_COFRE_H

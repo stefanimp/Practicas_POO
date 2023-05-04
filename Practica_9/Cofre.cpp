@@ -6,15 +6,21 @@
 #include "EmptyContainer.h"
 #include <stdexcept>
 
-Cofre::Cofre():Contenedor(){
+Cofre::Cofre():ContenedorItems(){
 }
 
-Cofre::Cofre(int cuantosCaben): Contenedor(cuantosCaben){
+Cofre::Cofre(int cuantosCaben): ContenedorItems(cuantosCaben){
 }
 
 /**Crea un Cofre vacío del mismo tamaño del original*/
-Cofre::Cofre(const Cofre& orig): Contenedor(orig){
+Cofre::Cofre(const Cofre& orig): ContenedorItems(orig){
 }
 
 Cofre::~Cofre() {
+}
+
+std::string Cofre::getDescripcion() const {
+    std::stringstream ss;
+    ss<<"Hay "<<ContenedorItems::cuantosHay() <<" elementos";
+
 }

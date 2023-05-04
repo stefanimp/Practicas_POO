@@ -1,5 +1,5 @@
 /** 
- * @file    Contenedor.h
+ * @file    ContenedorItems.h
  * @author  jrbalsas
  * 
  * @date    15 de abril de 2016
@@ -8,15 +8,15 @@
 #include "Item.h"
 #include <string>
 
-#ifndef Contenedor_H
-#define Contenedor_H
+#ifndef ContenedorItems_H
+#define ContenedorItems_H
 
-class Contenedor{
+class ContenedorItems{
 public:
-    Contenedor();
-    Contenedor(int cuantosCaben);
-    Contenedor(const Contenedor& orig);
-    virtual ~Contenedor();
+    ContenedorItems();
+    ContenedorItems(int cuantosCaben);
+    ContenedorItems(const ContenedorItems& orig);
+    virtual ~ContenedorItems();
     int cuantosCaben();
     int cuantosHay() const;
     virtual void mete(Item *item);
@@ -28,5 +28,5 @@ private:
     int _numItems = 0; ///< Primeras posiciones del vector ocupadas (máximo maxItems)
 };
 
-#endif /* Contenedor_H */
+#endif /* ContenedorItems_H */
 

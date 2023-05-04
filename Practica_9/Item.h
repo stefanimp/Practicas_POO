@@ -6,6 +6,7 @@
  */
 
 #include <string>
+#include <sstream>
 
 #ifndef ITEM_H
 #define ITEM_H

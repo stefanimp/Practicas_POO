@@ -8,11 +8,13 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "Contenedor.h"
+#include "ContenedorItems.h"
 #include "Item.h"
 #include "Bloque.h"
 #include "Espada.h"
 #include "Filete.h"
+#include "Cofre.h"
+#include "Inventario.h"
 
 using namespace std;
 
