@@ -9,8 +9,7 @@
 #include "EmptyContainer.h"
 #include <stdexcept>
 
-ContenedorItems::ContenedorItems(): ContenedorItems(27)
-{
+ContenedorItems::ContenedorItems(): ContenedorItems(27){
 }
 
 ContenedorItems::ContenedorItems(int cuantosCaben)
