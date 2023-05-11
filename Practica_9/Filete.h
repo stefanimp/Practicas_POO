@@ -1,12 +1,9 @@
-/** 
- * @file    Filete.h
- * @author  jrbalsas
- * 
- * @date    15 de abril de 2016
- */
+//
+// Created by stefan on 08/05/2023.
+//
 
-#ifndef FILETE_H
-#define FILETE_H
+#ifndef PRACTICA_9_FILETE_H
+#define PRACTICA_9_FILETE_H
 
 #include "Item.h"
 
@@ -16,11 +13,10 @@ public:
     Filete(const Filete& orig);
     virtual ~Filete();
 
-    virtual std::string getDescripcion() const;
+    virtual std::string getDescripcion() override;
 
 private:
 
 };
 
-#endif /* FILETE_H */
-
+#endif //PRACTICA_9_FILETE_H

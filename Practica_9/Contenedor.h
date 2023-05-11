@@ -1,9 +1,9 @@
 //
-// Created by stefan on 07/05/2023.
+// Created by stefan on 08/05/2023.
 //
 
-#ifndef PRUEBA_CONTENEDOR_H
-#define PRUEBA_CONTENEDOR_H
+#ifndef PRACTICA_9_CONTENEDOR_H
+#define PRACTICA_9_CONTENEDOR_H
 
 #include <string>
 #include <stdexcept>
@@ -12,9 +12,9 @@
 
 template <typename T>
 class Contenedor{
-private:
+protected:
     int _maxObjetos = 27;
-    T ** objetos = nullptr;
+    T ** objetos = new T*[_maxObjetos];
     int _numObjetos = 0;
 public:
     Contenedor() = default;
@@ -23,6 +23,7 @@ public:
     virtual ~Contenedor();
     int cuantosCaben() const;
     int cuantosHay() const;
+    //Hay una errar en el diagrama UML(2023) de este método, aparece como método abstracto pero no debe serlo, por lo tanto lo implementamos
     virtual void mete(T *objeto);
     T& consulta(int cual);
     T* saca(int cual);
@@ -88,4 +89,4 @@ T *Contenedor<T>::saca(int cual) {
     return elemento;
 }
 
-#endif //PRUEBA_CONTENEDOR_H
+#endif //PRACTICA_9_CONTENEDOR_H

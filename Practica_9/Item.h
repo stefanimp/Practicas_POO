@@ -1,22 +1,20 @@
-/** 
- * @file    Item.h
- * @author  jrbalsas
- * 
- * @date    15 de abril de 2016
- */
+//
+// Created by stefan on 08/05/2023.
+//
+
+#ifndef PRACTICA_9_ITEM_H
+#define PRACTICA_9_ITEM_H
 
 #include <string>
 #include <sstream>
 
-#ifndef ITEM_H
-#define ITEM_H
-
 /**@brief Interfaz de objetos del juego*/
 class Item {
+private:
+    int prueba = 0;
 public:
-    virtual std::string getDescripcion() const=0;
+    virtual std::string getDescripcion() =0;
     virtual ~Item() {};
 };
 
-#endif /* ITEM_H */
-
+#endif //PRACTICA_9_ITEM_H

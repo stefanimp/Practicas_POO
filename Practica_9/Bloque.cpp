@@ -1,35 +1,32 @@
-/** 
- * @file    Bloque.cpp
- * @author  jrbalsas
- * 
- * @date    15 de abril de 2016
- */
+//
+// Created by stefan on 08/05/2023.
+//
 
 #include "Bloque.h"
 
 #include <sstream>
 
 Bloque::Bloque()
-    :Bloque(1){
+        :Bloque(1){
 }
 
-Bloque::Bloque(unsigned int cuantos)
-    :ItemApilable(cuantos){
+Bloque::Bloque(int cuantos)
+        :ItemApilable(cuantos){
 }
 
 Bloque::Bloque(const Bloque& orig)
-    :ItemApilable(orig){
+        :ItemApilable(orig){
 }
 
 Bloque::~Bloque() {
 }
 
-std::string Bloque::getDescripcion() const {
+std::string Bloque::getDescripcion() {
     std::stringstream ss;
-    
-    ss << "Bloque de tierra (" 
+
+    ss << "Bloque de tierra ("
        << getNumElementos() << ") ";
-       
-    
+
+
     return ss.str();
 }

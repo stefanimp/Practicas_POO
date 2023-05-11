@@ -1,9 +1,6 @@
-/** 
- * @file    Espada.cpp
- * @author  jrbalsas
- * 
- * @date    15 de abril de 2016
- */
+//
+// Created by stefan on 08/05/2023.
+//
 
 #include "Espada.h"
 
@@ -13,6 +10,6 @@ Espada::Espada(const Espada& orig) {
 Espada::~Espada() {
 }
 
-std::string Espada::getDescripcion() const {
+std::string Espada::getDescripcion(){
     return "Espada";
 }

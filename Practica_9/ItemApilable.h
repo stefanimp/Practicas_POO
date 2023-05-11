@@ -1,12 +1,9 @@
-/** 
- * @file    ItemApilable.h
- * @author  jrbalsas
- * 
- * @date    15 de abril de 2016
- */
+//
+// Created by stefan on 08/05/2023.
+//
 
-#ifndef ITEMAPILABLE_H
-#define ITEMAPILABLE_H
+#ifndef PRACTICA_9_ITEMAPILABLE_H
+#define PRACTICA_9_ITEMAPILABLE_H
 
 #include "Item.h"
 
@@ -23,12 +20,10 @@ public:
     unsigned int getNumElementos() const;
 
     //Heredada de Item pero implementable en derivadas
-    virtual std::string getDescripcion() const=0;
 
 private:
     int _numElementos = 1;
 
 };
 
-#endif /* ITEMAPILABLE_H */
-
+#endif //PRACTICA_9_ITEMAPILABLE_H

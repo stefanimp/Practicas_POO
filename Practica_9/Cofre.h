@@ -1,20 +1,21 @@
 //
-// Created by stefan on 04/05/2023.
+// Created by stefan on 08/05/2023.
 //
 
-#ifndef PRUEBA_COFRE_H
-#define PRUEBA_COFRE_H
+#ifndef PRACTICA_9_COFRE_H
+#define PRACTICA_9_COFRE_H
 
-#include "ContenedorItems.h"
+#include "Contenedor.h"
+#include "Item.h"
 
-class Cofre:public ContenedorItems, public Item{
+class Cofre:public Contenedor<Item>, public Item{
 public:
     Cofre();
     Cofre(int cuantosCaben);
     Cofre(const Cofre& orig);
     virtual ~Cofre();
-    virtual std::string getDescripcion() const override;
+    virtual std::string getDescripcion() override;
     virtual void mete(Item *item) override;
 };
 
-#endif //PRUEBA_COFRE_H
+#endif //PRACTICA_9_COFRE_H

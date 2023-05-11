@@ -1,12 +1,9 @@
-/** 
- * @file    EmptyContainer.h
- * @author  jrbalsas
- * 
- * @date    16 de abril de 2016
- */
+//
+// Created by stefan on 08/05/2023.
+//
 
-#ifndef EMPTYCONTAINER_H
-#define EMPTYCONTAINER_H
+#ifndef PRACTICA_9_EMPTYCONTAINER_H
+#define PRACTICA_9_EMPTYCONTAINER_H
 
 #include <stdexcept>
 
@@ -20,5 +17,4 @@ private:
 
 };
 
-#endif /* EMPTYCONTAINER_H */
-
+#endif //PRACTICA_9_EMPTYCONTAINER_H

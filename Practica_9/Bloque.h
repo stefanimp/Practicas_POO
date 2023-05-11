@@ -1,12 +1,9 @@
-/** 
- * @file    Bloque.h
- * @author  jrbalsas
- * 
- * @date    15 de abril de 2016
- */
+//
+// Created by stefan on 08/05/2023.
+//
 
-#ifndef BLOQUE_H
-#define BLOQUE_H
+#ifndef PRACTICA_9_BLOQUE_H
+#define PRACTICA_9_BLOQUE_H
 
 #include "ItemApilable.h"
 
@@ -14,14 +11,13 @@
 class Bloque: public ItemApilable {
 public:
     Bloque();
-    Bloque(unsigned int cuantos);
+    Bloque(int cuantos);
     Bloque(const Bloque& orig);
     virtual ~Bloque();
-    virtual std::string getDescripcion() const;
+    virtual std::string getDescripcion() override;
 private:
-    
+
 
 };
 
-#endif /* BLOQUE_H */
-
+#endif //PRACTICA_9_BLOQUE_H

@@ -1,16 +1,17 @@
 //
-// Created by stefan on 04/05/2023.
+// Created by stefan on 08/05/2023.
 //
 
-#ifndef PRUEBA_INVENTARIO_H
-#define PRUEBA_INVENTARIO_H
+#ifndef PRACTICA_9_INVENTARIO_H
+#define PRACTICA_9_INVENTARIO_H
 
-#include "ContenedorItems.h"
+#include "Contenedor.h"
+#include "Item.h"
 
-class Inventario: public ContenedorItems{
+class Inventario: public Contenedor<Item>{
 public:
     Inventario() = default;
     ~Inventario();
 };
 
-#endif //PRUEBA_INVENTARIO_H
+#endif //PRACTICA_9_INVENTARIO_H

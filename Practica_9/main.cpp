@@ -1,14 +1,7 @@
-/* 
- * File:   main.cpp
- * Author: jrbalsas
- *
- * Created on 15 de abril de 2016, 11:11
- */
-
 #include <cstdlib>
 #include <iostream>
 
-#include "ContenedorItems.h"
+#include "Contenedor.h"
 #include "Item.h"
 #include "Bloque.h"
 #include "Espada.h"
@@ -22,7 +15,7 @@ using namespace std;
  * @pre v no contiene punteros inicializados
  * @post crea algunos objetos en el vector e inicializa el resto de elementos a 0
  * @return número de posiciones del vector con items creados*/
-void inicializaItems(ContenedorItems &contenedor) {
+void inicializaItems(Contenedor<Item> &contenedor) {
     contenedor.mete(new Bloque(5));
     contenedor.mete(new Bloque(8));
     contenedor.mete(new Bloque());
@@ -31,7 +24,7 @@ void inicializaItems(ContenedorItems &contenedor) {
 }
 
 /**Libera los items del vector creados en memoria dinámica*/
-void liberaItems(ContenedorItems &contenedor) {
+void liberaItems(Contenedor<Item> &contenedor) {
     for (int i = 1; i < contenedor.cuantosHay(); i++) {
         contenedor.saca(i);
     }
@@ -40,20 +33,32 @@ void liberaItems(ContenedorItems &contenedor) {
 
 void visualiza(Cofre &c) {
     std::cout << "CONTENIDO DEL COFRE" << std::endl
-            << "===================" << std::endl;
+              << "===================" << std::endl;
     for (int i = 1; i <= c.cuantosHay(); i++) {
         std::cout << i << ".- "
-                << c.consulta(i).getDescripcion() << std::endl;
+                  << c.consulta(i).getDescripcion() << std::endl;
     }
 
 }
 
 /**@brief Probando los Cofres
- * 
+ *
  */
 int main(int argc, char** argv) {
 
-    ContenedorItems objetos;
+    //Ejercicios clase
+
+    //1. Crear un cofre con diferentes items entre los cuales se encuentre al menos una espada y un filete
+
+    Cofre c1(16);
+    Espada *espada = new Espada();
+    Filete *filete = new Filete();
+    c1.mete(espada);
+    c1.mete(filete);
+
+    //
+    /*
+    Inventario objetos;
 
     try {
 
@@ -79,13 +84,13 @@ int main(int argc, char** argv) {
 
         //Liberamos recursos
         liberaItems(objetos);
-        
+
     } catch (std::exception &e) {
         //Capturamos cualquier excepción que se haya podido escapar
         //En tiempo de desarrollo
         std::cerr << "Finalización del programa por excepción sin capturar: "
-                << e.what() << std::endl;
+                  << e.what() << std::endl;
     }
+     */
     return 0;
 }
-
