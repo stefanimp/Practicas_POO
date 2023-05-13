@@ -42,6 +42,13 @@ int main () {
     }catch (std::out_of_range &e){
         e.what();
     }
+    try{
+        dc1.instala(*racks2);
+    }catch (DataCenterExcepcion &e){
+        std::cout<<e.what() << "Potencia disponible en el DataCenter: " <<dc1.getPotenciaDisponible();
+    }catch (std::out_of_range &e){
+        std::cout<<e.what();
+    }
 
 
     /* Prueba 2: Asignar al segundo rack de servidores creado el primero de ellos.

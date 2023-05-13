@@ -68,7 +68,9 @@ DataCenter::~DataCenter() {
  * @throws std::out_of_range si el DataCenter no dispone de un generador
  */
 void DataCenter::instala(Dispositivo &d) {
-
+    if(d.getConsumo() > this->getPotenciaDisponible()){
+        throw DataCenterExcepcion();
+    }
     if (fuente== nullptr) {
         throw std::out_of_range("[DataCenter::instalaDispositivos] El DataCenter no dispone de generador");
     }

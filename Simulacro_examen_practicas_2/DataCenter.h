@@ -8,6 +8,7 @@
 #include <string>
 #include "Generador.h"
 #include "Dispositivo.h"
+#include "DataCenterException.h"
 
 class DataCenter {
 public:
