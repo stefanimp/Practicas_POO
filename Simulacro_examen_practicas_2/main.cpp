@@ -17,6 +17,15 @@ void visualiza(Dispositivo &d) {
               << (d.isActivo()?"Está":"No está")<< " activo" << std::endl;
 
     /* Ejercicio 6.- Adaptar para visualizar los datos específicos del dispositivo según su tipo*/
+    RackServidores *prueba = dynamic_cast <RackServidores*>(&d);
+    if (prueba){
+        std::cout<<"Total servidores: " <<prueba->getTotalServidores()<<std::endl
+        <<"Servidores Operativos: " <<prueba->getServidoresOperativos() <<std::endl;
+    }
+    RackAlamacenamiento *prueba2 = dynamic_cast <RackAlamacenamiento*>(&d);
+    if(prueba2){
+        std::cout<<"Capacidad Total: "<<prueba2->getCapacidadTotal() <<std::endl;
+    }
 
 }
 
@@ -60,6 +69,11 @@ int main () {
 
     /**Prueba 3. En main, localizar el dispositivo con mayor consumo del DataCenter
      * y, si existe, visualiza sus datos con la función del ejercicio 6 */
+
+    Dispositivo *mayorconsumo = dc1.mayorConsumo();
+    if(mayorconsumo){
+        visualiza(*mayorconsumo);
+    };
 
 
     return 0;
