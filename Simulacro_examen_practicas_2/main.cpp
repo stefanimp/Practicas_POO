@@ -65,7 +65,7 @@ int main () {
      * Capturar, usando polimorfismo, cualquier excepción que pudiera generarse en el proceso.
      * Si la excepción capturada es de tipo DataCenterException, además del motivo debe mostrarse la potencia disponible del DataCenter en ese momento*/
 
-    racks2 = racks1;
+    *racks2 = *racks1;  //Importante utilizar los punteros para igualar, ya que si no no estaremos usando el operador de asignación sobrecargado, si no que estaremos diciceindo que el segundo servidor apunte al primero(si no hubiesemos creado los servidores como punteros no harían faltas estos para aplicar el operador de asignación=
 
     /**Prueba 3. En main, localizar el dispositivo con mayor consumo del DataCenter
      * y, si existe, visualiza sus datos con la función del ejercicio 6 */

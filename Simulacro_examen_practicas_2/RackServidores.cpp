@@ -47,5 +47,5 @@ RackServidores &RackServidores::operator=(const RackServidores &original) {
         totalServidores = original.totalServidores;
         servidoresOperativos = original.servidoresOperativos;
     }
-    return *this;
+    return (*this);
 }
