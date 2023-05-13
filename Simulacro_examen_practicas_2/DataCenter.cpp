@@ -102,3 +102,15 @@ float DataCenter::consumoActual() const {
     return consumo;
 }
 
+Dispositivo *DataCenter::mayorConsumo() {
+    if(numDispositivos > 0) {
+        int posmayorConsumo = 0;
+        for (int i = 1; i < numDispositivos; ++i) {
+            if (this->dispositivos[i]->getConsumo() > this->dispositivos[posmayorConsumo]->getConsumo()) {
+                posmayorConsumo = i;
+            }
+        }
+        return dispositivos[posmayorConsumo];
+    }
+    return nullptr;
+}

@@ -38,6 +38,8 @@ public:
     int getNumDispositivos() const;
 
     float consumoActual() const;
+    //Métodos de los ejercicios
+    Dispositivo* mayorConsumo();
 
 };
 
