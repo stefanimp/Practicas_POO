@@ -8,6 +8,7 @@
 
 #include <string>
 #include <stdexcept>
+#include <sstream>
 
 class Dispositivo {
 private:
@@ -19,7 +20,7 @@ public:
     Dispositivo(const Dispositivo& orig) = default;
     virtual ~Dispositivo() = default;
 
-    virtual std::string getDescripcion() const;
+    virtual std::string getDescripcion() const = 0;
     virtual float getConsumo() const;
     bool isActivo() const;
 

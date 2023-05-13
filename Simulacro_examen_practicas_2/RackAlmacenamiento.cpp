@@ -19,5 +19,10 @@ int RackAlamacenamiento::getCapacidadTotal() const {
 }
 
 std::string RackAlamacenamiento::getDescripcion() const {
+    std::stringstream ss;
+    std::string cadena;
+    ss<<getCapacidadTotal();
+    std::getline(ss,cadena);
+    return (Dispositivo::getDescripcion() + " Capacidad Total: " + cadena);
 
 }

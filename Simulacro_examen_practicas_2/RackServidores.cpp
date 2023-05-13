@@ -30,9 +30,13 @@ int RackServidores::getServidoresOperativos() const {
 }
 
 std::string RackServidores::getDescripcion() const {
-
+    std::stringstream ss;
+    std::string cadena;
+    ss<<Dispositivo::getDescripcion() << ". Total servidores: " <<getTotalServidores() <<", servidores operativos: " <<getServidoresOperativos();
+    std::getline(ss,cadena);
+    return cadena;
 }
 
 float RackServidores::getConsumo() const {
-
+    return (Dispositivo::getConsumo() * (servidoresOperativos/totalServidores));
 }

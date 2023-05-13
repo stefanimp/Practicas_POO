@@ -6,6 +6,8 @@
 #include "Generador.h"
 #include "Dispositivo.h"
 #include "DataCenter.h"
+#include "RackServidores.h"
+#include "RackAlmacenamiento.h"
 
 void visualiza(Dispositivo &d) {
     std::cout << "Información del dispositivo" << std::endl
@@ -30,6 +32,16 @@ int main () {
      * Crear dos Racks de almacenamiento con consumos de 800W y 1500W, y capacidades de 10 y 100 Terabytes respectivamente.
      * Reducir el número de servidores activos del primer rack a 9 y visualizar su descripción y consumo.
      * Capturar y mostrar cualquier excepción que pudiera ocurrir durante las operaciones realizadas*/
+    RackServidores *racks1 = new RackServidores("Rack de servidores 1",1000, 10);
+    RackServidores *racks2 = new RackServidores("Rack de servidores 2",2000,20);
+    RackAlamacenamiento *racka1 = new RackAlamacenamiento("RAck de almacenamiento 1",800,10);
+    RackAlamacenamiento *racka2 = new RackAlamacenamiento("Rack de almacenamiento 2",1500,100);
+
+    try{
+        racks1->setServidoresOperativo(9);
+    }catch (std::out_of_range &e){
+        e.what();
+    }
 
 
     /* Prueba 2: Asignar al segundo rack de servidores creado el primero de ellos.
