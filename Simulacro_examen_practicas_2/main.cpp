@@ -49,6 +49,7 @@ int main () {
      * Capturar, usando polimorfismo, cualquier excepción que pudiera generarse en el proceso.
      * Si la excepción capturada es de tipo DataCenterException, además del motivo debe mostrarse la potencia disponible del DataCenter en ese momento*/
 
+    racks2 = racks1;
 
     /**Prueba 3. En main, localizar el dispositivo con mayor consumo del DataCenter
      * y, si existe, visualiza sus datos con la función del ejercicio 6 */

@@ -26,3 +26,11 @@ std::string RackAlamacenamiento::getDescripcion() const {
     return (Dispositivo::getDescripcion() + " Capacidad Total: " + cadena);
 
 }
+
+RackAlamacenamiento &RackAlamacenamiento::operator=(const RackAlamacenamiento &original) {
+    if(this != &original){
+        this->Dispositivo::operator=(original);
+        capacidadTotal = original.capacidadTotal;
+    }
+    return *this;
+}

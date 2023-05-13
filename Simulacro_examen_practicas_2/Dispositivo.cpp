@@ -30,3 +30,13 @@ void Dispositivo::conmutaEstado() {
         this->activo=false;
     }
 }
+
+Dispositivo &Dispositivo::operator=(const Dispositivo &original) {
+    if(this != &original){
+        descripcion = original.descripcion;
+        consumo = original.consumo;
+        activo = original.activo;
+    }
+
+    return *this;
+}

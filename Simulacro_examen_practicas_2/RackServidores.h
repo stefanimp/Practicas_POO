@@ -22,6 +22,8 @@ public:
     int getServidoresOperativos() const;
     std::string getDescripcion() const override;
     float getConsumo() const override;
+    //Operadores
+    RackServidores& operator = (const RackServidores &original);
 };
 
 #endif //CLOUDPOO_V2_RACKSERVIDORES_H

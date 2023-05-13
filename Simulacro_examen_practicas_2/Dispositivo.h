@@ -23,6 +23,7 @@ public:
     virtual std::string getDescripcion() const = 0;
     virtual float getConsumo() const;
     bool isActivo() const;
+    Dispositivo& operator= (const Dispositivo &original);
 
     void conmutaEstado();
 

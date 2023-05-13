@@ -18,6 +18,8 @@ public:
     void setCapacidadTotal(int capacidadTotal);
     int getCapacidadTotal() const;
     virtual std::string getDescripcion() const override;
+    //Operadores
+    RackAlamacenamiento& operator =(const RackAlamacenamiento &original);
 
 };
 

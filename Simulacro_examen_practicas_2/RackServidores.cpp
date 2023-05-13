@@ -40,3 +40,12 @@ std::string RackServidores::getDescripcion() const {
 float RackServidores::getConsumo() const {
     return (Dispositivo::getConsumo() * (servidoresOperativos/totalServidores));
 }
+
+RackServidores &RackServidores::operator=(const RackServidores &original) {
+    if(this != &original){
+        this->Dispositivo::operator=(original);
+        totalServidores = original.totalServidores;
+        servidoresOperativos = original.servidoresOperativos;
+    }
+    return *this;
+}
