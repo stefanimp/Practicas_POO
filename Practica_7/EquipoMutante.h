@@ -9,7 +9,6 @@
 #define EQUIPOMUTANTE_H
 
 #include <string>
-
 #include "Mutante.h"
 
 /**

@@ -9,8 +9,6 @@
 #define INFORME_H
 
 #include <string>
-
-
 /**
  * @brief
  */

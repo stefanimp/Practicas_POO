@@ -6,7 +6,6 @@
 #define PRUEBA_ESCUADRON_H
 
 #include <string>
-
 #include "Piloto.h"
 
 class Escuadron{

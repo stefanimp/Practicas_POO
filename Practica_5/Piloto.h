@@ -10,11 +10,9 @@
 
 #include <string>
 #include <stdexcept>
-
 #include "StarFighter.h"
 #include "Droide.h"
 #include "Informe.h"
-
 
 /**
  * @brief

@@ -7,7 +7,6 @@
 
 #include <stdexcept>
 #include <sstream>
-
 #include "Mutante.h"
 #include "PoderFisico.h"
 #include "PoderPsiquico.h"

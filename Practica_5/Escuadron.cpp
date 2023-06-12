@@ -4,7 +4,6 @@
 
 #include "Escuadron.h"
 
-
 Escuadron::Escuadron(std::string nombre, std::string base):
 nombre(nombre),
 num_pilotos(num_pilotos),

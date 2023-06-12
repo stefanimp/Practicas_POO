@@ -6,7 +6,6 @@
  */
 
 #include <sstream>
-
 #include "PoderPsiquico.h"
 
 using std::string;

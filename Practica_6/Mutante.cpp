@@ -6,7 +6,6 @@
 
 #include <stdexcept>
 #include <sstream>
-
 #include "Mutante.h"
 
 Mutante::Mutante(string nombre, string apodo, int fechaN, string nacionalidad)

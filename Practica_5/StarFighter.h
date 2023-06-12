@@ -9,7 +9,6 @@
 #define STARFIGHTER_H
 
 #include "Pieza.h"
-
 #include <string>
 
 /**

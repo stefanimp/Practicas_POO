@@ -14,9 +14,7 @@ public:
     virtual ~Filete();
 
     virtual std::string getDescripcion() override;
-
 private:
-
 };
 
 #endif //PRACTICA_9_FILETE_H

@@ -7,8 +7,6 @@
 
 #include "Piloto.h"
 #include "Escuadron.h"
-
-
 #include <cstdlib>
 #include <string>
 #include <iostream>

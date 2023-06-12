@@ -1,6 +1,5 @@
 #include <cstdlib>
 #include <iostream>
-
 #include "Contenedor.h"
 #include "Item.h"
 #include "Bloque.h"

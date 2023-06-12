@@ -6,9 +6,7 @@
  */
 
 #include <sstream>
-
 #include "Droide.h"
-
 using std::string;
 
 int Droide::_numDroides = 0;
@@ -65,10 +63,8 @@ string Droide::toCSV () const
    return  aux.str ();
 }
 
-Droide& Droide::operator = ( const Droide& otro )
-{
-   if ( this != &otro )
-   {
+Droide& Droide::operator = ( const Droide& otro ){
+   if ( this != &otro ){
       _marca = otro._marca;
       _modelo = otro._modelo;
    }

@@ -8,9 +8,7 @@
 #include <stdexcept>
 #include <sstream>
 #include <iostream>
-
 #include "Piloto.h"
-
 using std::string;
 
 int Piloto::_numPilotos = 0;

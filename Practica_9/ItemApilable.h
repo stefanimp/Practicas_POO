@@ -20,10 +20,8 @@ public:
     unsigned int getNumElementos() const;
 
     //Heredada de Item pero implementable en derivadas
-
 private:
     int _numElementos = 1;
-
 };
 
 #endif //PRACTICA_9_ITEMAPILABLE_H

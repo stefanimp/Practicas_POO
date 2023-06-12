@@ -7,7 +7,6 @@
 
 #include <string>
 #include <stdexcept>
-
 #include "EmptyContainer.h"
 
 template <typename T>

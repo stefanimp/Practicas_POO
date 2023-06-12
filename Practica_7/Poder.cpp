@@ -7,7 +7,6 @@
 
 #include <stdexcept>
 #include <sstream>
-
 #include "Poder.h"
 
 using std::string;

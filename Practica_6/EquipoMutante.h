@@ -20,7 +20,6 @@ class EquipoMutante
 {
    public:
       static const int _MAX_MIEMBROS_ = 10;
-
    public:
       EquipoMutante();
       EquipoMutante ( string nombre, string base );
@@ -41,7 +40,6 @@ class EquipoMutante
 
       //Metodo ejercicio clase
       float getCapacidadDestructiva() const;
-
     private:
       string _nombre = "---";
       string _base = "---";

@@ -7,7 +7,6 @@
 
 #include <cstdlib>
 #include <iostream>
-
 #include "Cofre.h"
 #include "Bloque.h"
 #include "Espada.h"
@@ -67,7 +66,7 @@ int main(int argc, char** argv) {
 
 
     Cofre c(27); //Creamos un cofre con 27 posiciones
-    
+
     //Metemos todos los objetos en el cofre
     try {
         for (int i = 0; i < numObjetos; i++) {

@@ -27,6 +27,5 @@ std::string Bloque::getDescripcion() {
     ss << "Bloque de tierra ("
        << getNumElementos() << ") ";
 
-
     return ss.str();
 }

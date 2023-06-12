@@ -8,7 +8,6 @@
 #include <stdexcept>
 #include <sstream>
 #include <iostream>
-
 #include "StarFighter.h"
 
 using std::string;

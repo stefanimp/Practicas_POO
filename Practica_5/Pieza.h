@@ -11,7 +11,6 @@
 #include <string>
 #include <sstream>
 
-
 /**
  * @brief
  */
