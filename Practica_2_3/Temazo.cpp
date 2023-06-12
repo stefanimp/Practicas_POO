@@ -2,7 +2,6 @@
 // Created by stefan on 21/02/2023.
 //
 #include "Temazo.h"
-
 #include <iostream>
 
 /**

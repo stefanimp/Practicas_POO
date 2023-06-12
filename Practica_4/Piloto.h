@@ -9,9 +9,6 @@
 #include "Informe.h"
 #include "StarFighter.h"
 
-
-
-
 /**
  * @brief
  */

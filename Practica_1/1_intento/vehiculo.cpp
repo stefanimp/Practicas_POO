@@ -3,7 +3,6 @@
 //
 
 #include "vehiculo.h"
-
 #include <iostream>
 
 

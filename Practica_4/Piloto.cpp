@@ -5,9 +5,7 @@
 #include <stdexcept>
 #include <sstream>
 #include <string>
-
 #include "Piloto.h"
-
 
 using std::string;
 

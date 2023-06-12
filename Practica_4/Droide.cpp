@@ -3,7 +3,6 @@
 //
 
 #include <sstream>
-
 #include "Droide.h"
 
 using std::string;

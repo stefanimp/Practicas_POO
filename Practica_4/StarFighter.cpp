@@ -4,7 +4,6 @@
 
 
 #include <sstream>
-
 #include "StarFighter.h"
 
 using std::string;

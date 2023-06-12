@@ -4,7 +4,6 @@
 
 #include <stdexcept>
 #include <sstream>
-
 #include "Informe.h"
 
 using std::string;

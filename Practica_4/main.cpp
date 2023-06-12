@@ -1,8 +1,6 @@
 #include <cstdlib>
 #include <iostream>
-
 #include "Piloto.h"
-
 
 using namespace std;
 
@@ -161,8 +159,6 @@ int main ( int argc, char** argv )
         std::cout<<e.what();
     }
 
-
-
     //Genera dos informes con los datos de las ultimas misiones de los dos primeros pilotos
     Informe informe1 =  pv_pilotos[0]->generaInforme();
     Informe informe2 =  pv_pilotos[1]->generaInforme();
@@ -215,9 +211,6 @@ int main ( int argc, char** argv )
     }
     delete []pv_droides;
     pv_droides = nullptr;
-
-
-
 
     return 0;
 }

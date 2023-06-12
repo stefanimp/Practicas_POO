@@ -5,7 +5,6 @@
 #ifndef PRACTICA_4_INFORME_H
 #define PRACTICA_4_INFORME_H
 
-
 /**
  * @brief
  */
