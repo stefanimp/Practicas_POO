@@ -3,7 +3,7 @@ exenta de errores y puede que no sea la mejor solución ante los problemas.
 
 Espero que este código pueda servir a muchos durante el desarrollo de la asignnatura :)
 
-Algo que quiero destacar sobre este proyecto es que estoy totalmente abierto a sugerencias para mejorar mi código por lo que si ves algún fallo o algo
+Algo que quiero destacar sobre este proyecto es que estoy completamente abierto a sugerencias para mejorar mi código por lo que si ves algún fallo o algo
 que podría mejorar no dudes en ponerte en contacto conmigo a traves de stefan408.imperato@gmail.com o solicitar una modificación del preoyecto.
 
 También puedes escribirme si tienes alguna duda sobre mi código.
