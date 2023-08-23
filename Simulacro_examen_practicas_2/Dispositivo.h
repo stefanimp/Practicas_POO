@@ -24,7 +24,6 @@ public:
     virtual float getConsumo() const;
     bool isActivo() const;
     Dispositivo& operator= (const Dispositivo &original);
-
     void conmutaEstado();
 
 };

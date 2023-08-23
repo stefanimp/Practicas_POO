@@ -17,13 +17,10 @@ public:
     Dispositivo(const std::string &descripcion, float consumo);
     Dispositivo(const Dispositivo& orig) = default;
     virtual ~Dispositivo() = default;
-
     const std::string &getDescripcion() const;
     float getConsumo() const;
     bool isActivo() const;
-
     void conmutaEstado();
-
 };
 
 

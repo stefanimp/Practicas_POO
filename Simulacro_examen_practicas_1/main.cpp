@@ -4,7 +4,6 @@
  */
 
 #include "DataCenter.h"
-
 #include <iostream>
 
 int main() {
